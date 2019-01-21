@@ -1,0 +1,10 @@
+[options]
+font = Hack 9
+mouse_autohide = true
+scrollback_lines = 8192
+
+[colors]
+background = rgba(0, 0, 0, 0.7)
+
+highlight = #2f2f2f
+#color0 = 

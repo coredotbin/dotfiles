@@ -1,0 +1,128 @@
+set $mod Mod4
+
+set $left h
+set $down j
+set $up k
+set $right l
+
+set $term /usr/bin/termite
+set $menu /usr/bin/dmenu_run
+set $browser /usr/bin/firefox
+
+gaps outer 10
+gaps inner 40
+
+default_border none
+default_floating_border none
+hide_edge_borders both
+
+output * bg ~/Pictures/DSC_0140_edit.jpg fill
+output eDP-1 pos 1920 0 res 1920x1080
+output HDMI-A-2 pos 0 0 res 1920x1080
+
+workspace 1 output eDP-1
+workspace 2 output HDMI-A-2
+
+### Key bindings
+# Start terminal
+bindsym $mod+Return exec $term
+
+# Start browser
+bindsym $mod+i exec $browser
+
+# Kill focused window
+bindsym $mod+Shift+q kill
+
+# Start menu
+bindsym $mod+d exec $menu
+
+# Floating windows
+floating_modifier $mod normal
+
+# Reload ~/.config/sway/config
+bindsym $mod+Shift+c reload
+# Exit sway logging out of Wayland session
+bindsym $mod+Shift+e exit
+
+# move focus
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# move focused window
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+# split focused container
+bindsym $mod+e layout toggle split
+bindsym $mod+b splith
+bindsym $mod+v splitv
+
+# switch focused container layout styles
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+
+# make focused window fullscreen
+bindsym $mod+f fullscreen
+
+# toggle focused window between tiling/floating
+bindsym $mod+Shift+space floating toggle
+
+# toggle focus between tiling/floating areas
+bindsym $mod+space focus mode_toggle
+
+# focus parent container
+bindsym $mod+a focus parent
+
+# switch through workspaces
+#bindsym $mod+Alt+$left workspace prev
+#bindsym $mod+Alt+$right workspace next
+
+# switch workspace explicitly
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+mode "resize" {
+    bindsym $left resize shrink width 10 px or 10 ppt
+    bindsym $down resize grow height 10 px or 10 ppt
+    bindsym $up resize shrink height 10 px or 10 ppt
+    bindsym $right resize grow width 10 px or 10 ppt
+
+    # return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+    swaybar_command waybar
+}
+
+include /etc/sway/config.d/*
