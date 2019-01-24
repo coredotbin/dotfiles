@@ -5,9 +5,14 @@ set $down j
 set $up k
 set $right l
 
-set $term /usr/bin/termite
+set $term /usr/bin/kitty
 set $menu /usr/bin/dmenu_run
+#set $browser /usr/bin/qutebrowser
 set $browser /usr/bin/firefox
+
+# Apply wal themes
+#exec gsettings set org.gnome.desktop.interface gtk-theme wal
+include ~/.cache/wal/colors-sway
 
 gaps outer 10
 gaps inner 40
@@ -16,12 +21,15 @@ default_border none
 default_floating_border none
 hide_edge_borders both
 
-output * bg ~/Pictures/DSC_0140_edit.jpg fill
-output eDP-1 pos 1920 0 res 1920x1080
-output HDMI-A-2 pos 0 0 res 1920x1080
+set $wallpaper ~/Pictures/DSC_0140_edit.jpg
+#output eDP-1 pos 0 0 res 1920x1080 bg $wallpaper fill
+output HDMI-A-2 pos 0 0 res 1920x1080 bg $wallpaper fill
+output eDP-1 pos 1920 0 res 1920x1080 bg $wallpaper fill
 
-workspace 1 output eDP-1
-workspace 2 output HDMI-A-2
+workspace 1 output HDMI-A-2
+workspace 2 output eDP-1
+
+focus_follows_mouse no
 
 ### Key bindings
 # Start terminal
@@ -117,10 +125,6 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
 bar {
     swaybar_command waybar
 }
