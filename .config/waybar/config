@@ -6,7 +6,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "network", "battery", "clock"],
+    "modules-right": ["custom/spotify", "pulseaudio", "network", "battery", "clock"],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
@@ -19,7 +19,7 @@
     },
     "battery": {
         "states": {
-            // "good": 95,
+            "good": 95,
             "warning": 30,
             "critical": 15
         },
@@ -49,5 +49,5 @@
             "default": ["", ""]
         },
         "on-click": "pavucontrol"
-    }
+    },
 }

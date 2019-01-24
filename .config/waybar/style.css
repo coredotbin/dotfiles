@@ -11,9 +11,8 @@
 }
 
 window#waybar {
-    opacity: 0.7;
+    opacity: 0.7; /* Should be the same opacity as terminal background */
     background: #0E0E0E;
-    border-bottom: 3px solid #817B78;
     color: #d6d6d7;
 }
 
@@ -38,19 +37,18 @@ window#waybar {
     margin: 0 5px;
 }
 
+#battery.critical {
+    color: #CE986E;
+}
+
 #battery.charging {
     color: #79856A;
 }
 
-#battery.warning {
-    color: #CE986E;
-}
-
-#network.disconnected {
+network.disconnected {
     color: #CE986E;
 }
 
 #pulseaudio.muted {
-    background: #90b1b1;
-    color: #2a5c45;
+    color: #CE986E;
 }
