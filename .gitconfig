@@ -1,0 +1,12 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Corbin Bartsch
+	email = corbin.bartsch@protonmail.com
+	#singingKey = 
+
+[alias]
+	undo = reset --mixed HEAD
+
+[commit]
+	#gpgsign = true
