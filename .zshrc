@@ -8,19 +8,18 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
+HISTFILE=~/.zhistory
 HISTSIZE=8192
 SAVEHIST=8192
 setopt autocd nomatch
 unsetopt beep notify
-bindkey -v
+bindkey -v # vi-like keybindings
 # End of lines configured by zsh-newuser-install
 
 ### Environment Variables
 EDITOR=vim
 
-#PS1='\[\e[31m\]\u\[\e[0m\]@\h \W \$ '
-PS1=' %1~ > '
+PS1=' %F{4}%1~ >%f '
 
 #### Aliases
 alias cp='cp -v'
