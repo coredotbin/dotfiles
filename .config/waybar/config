@@ -49,5 +49,5 @@
             "default": ["", ""]
         },
         "on-click": "pavucontrol"
-    },
+    }
 }

@@ -5,8 +5,8 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: Vira Code, Helvetica, Arial, sans-serif;
-    font-size: 11px;
+    font-family: Vira-Code, Helvetica, Arial, sans-serif;
+    font-size: 1em;
     min-height: 0;
 }
 
@@ -45,7 +45,7 @@ window#waybar {
     color: #79856A;
 }
 
-network.disconnected {
+#network.disconnected {
     color: #CE986E;
 }
 
