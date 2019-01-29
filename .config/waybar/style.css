@@ -31,7 +31,7 @@ window#waybar {
     background: #64727D;
 }
 
-#clock, #battery, #cpu, #memory, #network, #pulseaudio, #custom-spotify, #tray, #mode {
+#clock, #battery, #cpu, #memory, #network, #pulseaudio, #custom-brightness, #mode {
     padding: 0 10px;
     margin: 0 5px;
 }

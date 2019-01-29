@@ -1,18 +1,13 @@
 {
-    "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar at the bottom of your screen
-    "height": 30, // Waybar height
-    "width": 1920, // Waybar width
-    // Choose the order of the modules
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "width": 1920,
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["custom/spotify", "pulseaudio", "network", "battery", "clock"],
+    "modules-right": ["custom/brightness", "pulseaudio", "network", "battery", "clock"],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
-    },
-    "tray": {
-        // "icon-size": 21,
-        "spacing": 10
     },
     "clock": {
         "format": "{:%Y-%m-%d %H:%M}"
@@ -24,12 +19,9 @@
             "critical": 15
         },
         "format": "{capacity}% {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
     "network": {
-        // "interface": "wlp2s0", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ",
         "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         "format-disconnected": "Disconnected ⚠"
@@ -47,7 +39,11 @@
             "portable": "",
             "car": "",
             "default": ["", ""]
-        },
-        "on-click": "pavucontrol"
-    }
+        }
+    },
+    "custom/brightness": {
+        "exec": "/usr/bin/brightnessctl --machine-readable | grep -o -E '([0-9]+%)'",
+        "interval": 10,
+	"format": "{} "
+    }   
 }
