@@ -10,3 +10,5 @@
 
 [commit]
 	gpgsign = true
+[url "https://aur.archlinux.org/"]
+	insteadOf = "aur:"
