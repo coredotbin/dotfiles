@@ -1,3 +1,7 @@
+# Custom config for sway
+#
+# Copied from /etc/sway/config
+
 set $mod Mod4
 
 set $left h
@@ -126,7 +130,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bar {
-    swaybar_command /sbin/waybar
+    swaybar_command /usr/bin/waybar
 }
 
 include /etc/sway/config.d/*

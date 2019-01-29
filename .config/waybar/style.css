@@ -5,8 +5,8 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: Vira-Code, Helvetica, Arial, sans-serif;
-    font-size: 1em;
+    font-family: kitty, Helvetica, Arial, sans-serif;
+    font-size: 10pt;
     min-height: 0;
 }
 
@@ -29,7 +29,6 @@ window#waybar {
 
 #mode {
     background: #64727D;
-    border-bottom: 3px solid white;
 }
 
 #clock, #battery, #cpu, #memory, #network, #pulseaudio, #custom-spotify, #tray, #mode {
