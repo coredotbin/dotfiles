@@ -29,6 +29,8 @@ set $wallpaper ~/Pictures/DSC_0140_edit.jpg
 #output eDP-1 pos 0 0 res 1920x1080 bg $wallpaper fill
 output HDMI-A-2 pos 0 0 res 1920x1080 bg $wallpaper fill
 output eDP-1 pos 1920 0 res 1920x1080 bg $wallpaper fill
+output DP-3 pos -1920 0 res 1920x1080 bg $wallpaper fill
+output DP-4 pos 0 0 res 1920x1080 bg $wallpaper fill
 
 workspace 1 output HDMI-A-2
 workspace 2 output eDP-1
