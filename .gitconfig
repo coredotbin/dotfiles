@@ -1,6 +1,4 @@
-# This is Git's per-user configuration file.
 [user]
-# Please adapt and uncomment the following lines:
 	name = Corbin Bartsch
 	email = corbin.bartsch@protonmail.com
 	singingKey = 1FCD60FE924418296DF79AF95AF73B57B28BDC03
