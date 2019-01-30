@@ -17,7 +17,8 @@ bindkey -v # vi-like keybindings
 # End of lines configured by zsh-newuser-install
 
 ### Environment Variables
-EDITOR=vim
+export CHROOT=$HOME/chroot
+export EDITOR=vim
 
 PS1=' %F{4}%1~ >%f '
 
