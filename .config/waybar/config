@@ -41,7 +41,8 @@
             "default": ["", ""]
         }
     },
-   "cpu": {
+    // TODO: Add these modules to the bottom bar
+    "cpu": {
         "interval": 10,
         "format": "{}% ",
         "max-length": 10
