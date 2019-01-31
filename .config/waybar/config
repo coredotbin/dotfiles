@@ -41,9 +41,19 @@
             "default": ["", ""]
         }
     },
+   "cpu": {
+        "interval": 10,
+        "format": "{}% ",
+        "max-length": 10
+    },
+    "memory": {
+        "interval": 10,
+        "format": "{}% ",
+        "max-length": 10
+    },
     "custom/brightness": {
         "exec": "/usr/bin/brightnessctl --machine-readable | grep -o -E '([0-9]+%)'",
-        "interval": 2,
+        "interval": 1,
 	"format": "{} "
     }   
 }
