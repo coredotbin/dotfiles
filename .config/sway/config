@@ -1,6 +1,4 @@
 # Custom config for sway
-#
-# Copied from /etc/sway/config
 
 set $mod Mod4
 
@@ -10,7 +8,7 @@ set $up k
 set $right l
 
 set $term /usr/bin/kitty
-set $menu /usr/bin/dmenu_run
+set $menu /usr/bin/rofi -show drun
 #set $browser /usr/bin/qutebrowser
 set $browser /usr/bin/firefox
 
@@ -38,6 +36,16 @@ workspace 2 output eDP-1
 focus_follows_mouse no
 
 ### Key bindings
+# Lenovo Fn keys
+# Volume
+bindsym XF86AudioMute exec pulseaudio-ctl mute
+bindsym XF86AudioRaiseVolume exec pulseaudio-ctl up
+bindsym XF86AudioLowerVolume exec pulseaudio-ctl down
+bindsym XF86AudioMicMute exec pulseaudio-ctl mute-input
+# Brightness
+bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl s +5%
+
 # Start terminal
 bindsym $mod+Return exec $term
 
@@ -131,8 +139,6 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-bar {
-    swaybar_command /usr/bin/waybar
-}
-
 include /etc/sway/config.d/*
+
+exec waybar
