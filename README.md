@@ -1,6 +1,8 @@
 # dotfiles
 My configurations for Sway WM on Arch
 
+![Screenshot](/screenshot.png?raw=true)
+
 This is my first rice, and I'm still very new at this. Do not expect that these configuration files will work for your set up.
 
 OS: Arch Linux<br />
