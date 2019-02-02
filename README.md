@@ -15,12 +15,13 @@ This is my first rice, and still a work in progress. Please do not expect that t
 * Bluetooth 4.1
 
 **OS**: Arch Linux<br />
-**WM**: [Sway](https://swaywm.org/) (AUR [sway-git](https://aur.archlinux.org/packages/sway-git/))<br />
-**Bar**: [Waybar](https://github.com/alexays/waybar) (AUR [waybar-git](https://aur.archlinux.org/packages/waybar-git))<br />
+**WM**: [Sway](https://swaywm.org/) ([sway-git](https://aur.archlinux.org/packages/sway-git/)<sup>AUR</sup>)<br />
+**Bar**: [Waybar](https://github.com/alexays/waybar) ([waybar-git](https://aur.archlinux.org/packages/waybar-git))<sup>AUR</sup><br />
 **Colors**: [pywal](https://github.com/dylanaraps/pywal) chooses colors based on the wallpaper!<br />
 **Terminal**: [Kitty](https://github.com/kovidgoyal/kitty)<br />
 **Font**: [FiraCode](https://github.com/tonsky/FiraCode)<br /> 
 **Icons**: [FontAwesome](https://fontawesome.com/) ([otf-font-awesome](https://www.archlinux.org/packages/community/any/otf-font-awesome/))
+**Lockscreen**: [swaylock](https://github.com/swaywm/swaylock) with cjbassi's [swaylock-blur](https://github.com/cjbassi/swaylock-blur) script
 
 ## Features
 Interesting configurations and scripts you may find useful.

@@ -1,38 +1,41 @@
-# Custom config for sway
+### Custom config for sway
 
+# Key definitions
 set $mod Mod4
-
 set $left h
 set $down j
 set $up k
 set $right l
 
+# Applications
 set $term /usr/bin/kitty
 set $menu /usr/bin/rofi -show drun
-#set $browser /usr/bin/qutebrowser
+set $lockscreen /usr/bin/swaylock-blur -C ~/.config/swaylock/config
 set $browser /usr/bin/firefox
 
 # Apply wal themes
-#exec gsettings set org.gnome.desktop.interface gtk-theme wal
+#exec gsettings set org.gnome.desktop.interface ~/.cache/wal/gtk-theme wal
 include ~/.cache/wal/colors-sway
 
 gaps outer 10
-gaps inner 40
+gaps inner 20
 
 default_border none
-default_floating_border none
+#default_floating_border none
 hide_edge_borders both
 
-set $wallpaper ~/Pictures/DSC_0140_edit.jpg
-#output eDP-1 pos 0 0 res 1920x1080 bg $wallpaper fill
-output HDMI-A-2 pos 0 0 res 1920x1080 bg $wallpaper fill
-output eDP-1 pos 1920 0 res 1920x1080 bg $wallpaper fill
-output DP-3 pos -1920 0 res 1920x1080 bg $wallpaper fill
-output DP-4 pos 0 0 res 1920x1080 bg $wallpaper fill
+# Output
+set $wallpaper ~/.config/wallpaper/*
+output * bg $wallpaper fill
+output HDMI-A-2	pos 0		0 res 1920x1080
+output eDP-1	pos 1920	0 res 1920x1080
+output DP-3	pos -1920	0 res 1920x1080
+output DP-4	pos 0		0 res 1920x1080
 
-workspace 1 output HDMI-A-2
+workspace 1 output HDMI-A-2 # Primary workspace on external monitor
 workspace 2 output eDP-1
 
+# Behavior
 focus_follows_mouse no
 
 ### Key bindings
@@ -45,6 +48,8 @@ bindsym XF86AudioMicMute exec pulseaudio-ctl mute-input
 # Brightness
 bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl s +5%
+# Lock screen
+bindsym XF86Display exec $lockscreen
 
 # Start terminal
 bindsym $mod+Return exec $term
