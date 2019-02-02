@@ -1,3 +1,4 @@
+# autoload -U colors 
 # The following lines were added by compinstall
 
 zstyle ':completion:*' completer _complete _ignored
@@ -15,6 +16,8 @@ setopt autocd nomatch
 unsetopt beep notify
 bindkey -v # vi-like keybindings
 # End of lines configured by zsh-newuser-install
+
+source ~/.oh-my-zsh/lib/termsupport.zsh
 
 ### Environment Variables
 export CHROOT=$HOME/chroot
