@@ -3,7 +3,7 @@
     "position": "top",
     "height": 30,
     "width": 1920,
-    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-left": ["sway/workspaces", "sway/mode", "custom/spotify"],
     "modules-center": ["sway/window"],
     "modules-right": ["custom/brightness", "pulseaudio", "network", "battery", "clock"],
     "sway/mode": {
@@ -41,6 +41,11 @@
             "default": ["", ""]
         }
     },
+    "custom/brightness": {
+        "exec": "/usr/bin/brightnessctl --machine-readable | grep -o -E '([0-9]+%)'",
+        "interval": 1,
+	"format": "{} "
+    },
     // TODO: Add these modules to the bottom bar
     "cpu": {
         "interval": 10,
@@ -52,9 +57,10 @@
         "format": "{}% ",
         "max-length": 10
     },
-    "custom/brightness": {
-        "exec": "/usr/bin/brightnessctl --machine-readable | grep -o -E '([0-9]+%)'",
-        "interval": 1,
-	"format": "{} "
-    }   
+    "custom/spotify": {
+        "format": " {}",
+        "max-length": 40,
+        "exec": "$HOME/.config/waybar/mediaplayer.sh 2",
+        "exec-if": "pgrep spotify"
+    }
 }
