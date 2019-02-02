@@ -1,9 +1,12 @@
-# dotfiles
+# .dotfiles
 My configurations for Sway WM on Arch
 
 ![Screenshot](/screenshot.png?raw=true)
 
-This is my first rice, and I'm still very new at this. Do not expect that these configuration files will work for your set up.
+This is my first rice, and still a work in progress. Do not expect that these configuration files will work for your set up.
+
+Host: ThinkPad T470<br />
+CPU: Intel i7-7500U
 
 OS: Arch Linux<br />
 WM: [sway-git](https://aur.archlinux.org/packages/sway-git/)<br />
@@ -14,4 +17,4 @@ Font: Kitty default font (for now)
 
 The wallpaper is a photo of Little River in Tennessee that I took during my spring break last year.
 
-![Wallpaper](/wallpaper.jpg?raw=true)
+![Wallpaper](/.config/wallpaper/DSC_0140_edit.jpg?raw=true)
