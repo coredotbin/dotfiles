@@ -2,6 +2,7 @@
 My configurations for Sway WM on Arch
 
 ![Screenshot](/screenshot.png?raw=true)
+CC-BY-SA-4.0
 
 This is my first rice, and still a work in progress. Please do not expect that these configuration files will work for your set up. Enjoy!
 
@@ -52,3 +53,4 @@ Using [brightnessctl](https://github.com/Hummer12007/brightnessctl) to get the b
 The wallpaper is a photo of Little River in Tennessee that I took during my spring break last year.
 
 ![Wallpaper](/.config/wallpaper/DSC_0140_edit.jpg?raw=true)
+CC-BY-SA-4.0
