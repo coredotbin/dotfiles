@@ -7,15 +7,16 @@ set $down j
 set $up k
 set $right l
 
+# Apply wal themes
+set $theme ~/.cache/wal
+#exec gsettings set org.gnome.desktop.interface $theme/gtk-theme wal
+include $theme/colors-sway
+
 # Applications
 set $term /usr/bin/kitty
-set $menu /usr/bin/rofi -show drun
+set $menu /usr/bin/rofi -show drun -theme $theme/colors-rofi-dark.rasi
 set $lockscreen /usr/bin/swaylock-blur -C ~/.config/swaylock/config
 set $browser /usr/bin/firefox
-
-# Apply wal themes
-#exec gsettings set org.gnome.desktop.interface ~/.cache/wal/gtk-theme wal
-include ~/.cache/wal/colors-sway
 
 gaps outer 10
 gaps inner 20

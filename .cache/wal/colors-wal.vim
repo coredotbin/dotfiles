@@ -1,5 +1,5 @@
 " Special
-let wallpaper  = "/home/corbin/Pictures/DSC_0140_edit.jpg"
+let wallpaper  = "/home/corbin/.config/wallpaper/DSC_0140_edit.jpg"
 let background = "#0E0E0A"
 let foreground = "#d6d6d7"
 let cursor     = "#d6d6d7"

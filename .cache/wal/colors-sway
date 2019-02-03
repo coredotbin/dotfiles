@@ -1,4 +1,4 @@
-set $wallpaper /home/corbin/Pictures/DSC_0140_edit.jpg
+set $wallpaper /home/corbin/.config/wallpaper/DSC_0140_edit.jpg
 
 set $background #0E0E0A
 set $foreground #d6d6d7
