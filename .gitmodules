@@ -1,0 +1,6 @@
+[submodule ".vim/pack/plugins/start/vimwiki"]
+	path = .vim/pack/plugins/start/vimwiki
+	url = git@github.com:vimwiki/vimwiki.git
+[submodule ".vim/pack/plugins/start/vim-css-color"]
+	path = .vim/pack/plugins/start/vim-css-color
+	url = git@github.com:ap/vim-css-color.git
