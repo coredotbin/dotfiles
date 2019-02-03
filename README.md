@@ -17,8 +17,8 @@ This is my first rice, and still a work in progress. Please do not expect that t
 
 **OS**: Arch Linux<br />
 **WM**: [Sway](https://swaywm.org/) ([sway-git](https://aur.archlinux.org/packages/sway-git/)<sup>AUR</sup>)<br />
-**Bar**: [Waybar](https://github.com/alexays/waybar) ([waybar-git](https://aur.archlinux.org/packages/waybar-git))<sup>AUR</sup><br />
-**Colors**: [pywal](https://github.com/dylanaraps/pywal) chooses colors based on the wallpaper!<br />
+**Bar**: [Waybar](https://github.com/alexays/waybar) ([waybar-git](https://aur.archlinux.org/packages/waybar-git)<sup>AUR</sup>)<br />
+**Colors**: [pywal](https://github.com/dylanaraps/pywal) generates a color scheme based on the [wallpaper](#drop-in-wallpaper)!<br />
 **Terminal**: [Kitty](https://github.com/kovidgoyal/kitty)<br />
 **Font**: [FiraCode](https://github.com/tonsky/FiraCode)<br /> 
 **Icons**: [FontAwesome](https://fontawesome.com/) ([otf-font-awesome](https://www.archlinux.org/packages/community/any/otf-font-awesome/))
@@ -28,17 +28,23 @@ This is my first rice, and still a work in progress. Please do not expect that t
 Interesting configurations and scripts you may find useful.
 
 ### Drop-in wallpaper
-I just replace the file in `.config/wallpaper/` when I want to change it. This is done just by telling Sway to use any file in a certain directory:
+Replace the file in `.config/wallpaper/` to change your wallpaper. This configuration tells Sway to use any file in this directory:
 
 ```
 set $wallpaper ~/.config/wallpaper/*
 output * bg $wallpaper fill
 ```
 
+After replacing the image file, regenerate your pywal color scheme:
+
+```
+$ wal -i ~/.config/wallpaper/*
+```
+
 ### Waybar Spotify module
 The Waybar Spotify module ships default with Waybar! You can find SibrenVasse's [mediaplayer.py script on the Waybar repository](https://github.com/Alexays/Waybar/blob/master/resources/custom_modules/mediaplayer.py).
 
-## Waybar brightness module
+### Waybar brightness module
 Using [brightnessctl](https://github.com/Hummer12007/brightnessctl) to get the backlight brightness:
 
 ```
@@ -50,7 +56,7 @@ Using [brightnessctl](https://github.com/Hummer12007/brightnessctl) to get the b
 ```
 
 ## Wallpaper
-The wallpaper is a photo of Little River in Tennessee that I took during my spring break last year.
+The wallpaper is a photo of Little River in Tennessee that I took during my spring holiday in 2018.
 
 ![Wallpaper](/.config/wallpaper/DSC_0140_edit.jpg?raw=true)
 CC-BY-SA-4.0
