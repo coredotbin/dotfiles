@@ -25,16 +25,20 @@ export EDITOR=vim
 
 PS1=' %F{4}%1~ >%f '
 
-#### Aliases
+### Aliases
+# General
 alias cp='cp -v'
 alias ls='ls -h --color=auto'
+# Pacman aliases
 alias pacls='sudo pacman -Qet'
-alias pacup='sudo pacman -Syu'
+alias pacorphs='sudo pacman -Qdt'
+alias pacupdgrade='sudo pacman -Syu'
 alias pacins='sudo pacman -Syu --needed'
-alias pacrm='sudo pacman -Rsn'
+alias pacrm='sudo pacman -Rns'
+# dotfile storage method
 alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
-# If running from tty1 start sway
+# Start sway if running in tty1
 if [ "$(tty)" = "/dev/tty1" ]; then
 	# Sway
 	exec sway
