@@ -27,10 +27,10 @@
         "format-disconnected": "Disconnected ⚠"
     },
     "pulseaudio": {
-        //"scroll-step": 1,
+        "on-click": "/usr/bin/pulseaudio-ctl mute",
         "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon}",
-        "format-muted": "",
+        "format-muted": "Muted ",
         "format-icons": {
             "headphones": "",
             "handsfree": "",
@@ -47,6 +47,12 @@
 	"format": "{} "
     },
     // TODO: Add these modules to the bottom bar
+    "custom/spotify": {
+        "format": " {}",
+        "max-length": 40,
+        "exec": "$HOME/.config/waybar/mediaplayer.sh 2",
+        "exec-if": "pgrep spotify"
+    },
     "cpu": {
         "interval": 10,
         "format": "{}% ",
@@ -54,13 +60,12 @@
     },
     "memory": {
         "interval": 10,
-        "format": "{}% ",
+        "format": "{}% ",
         "max-length": 10
     },
-    "custom/spotify": {
-        "format": " {}",
-        "max-length": 40,
-        "exec": "$HOME/.config/waybar/mediaplayer.sh 2",
-        "exec-if": "pgrep spotify"
+    "custom/drive": {
+        "exec": "$HOME/.config/waybar/drive.sh",
+        "interval": 600,
+        "format": "{} "
     }
 }
