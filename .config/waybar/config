@@ -64,7 +64,7 @@
         "max-length": 10
     },
     "custom/drive": {
-        "exec": "$HOME/.config/waybar/drive.sh",
+        "exec": "$HOME/.config/waybar/drive-nvme0n1p2.sh",
         "interval": 600,
         "format": "{} "
     }
