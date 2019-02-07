@@ -3,7 +3,7 @@
     "position": "top",
     "height": 30,
     "width": 1920,
-    "modules-left": ["sway/workspaces", "sway/mode", "custom/spotify"],
+    "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
     "modules-right": ["custom/brightness", "pulseaudio", "network", "battery", "clock"],
     "sway/mode": {
