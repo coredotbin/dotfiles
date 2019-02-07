@@ -1,4 +1,4 @@
-### Custom config for sway
+### sway config
 
 # Key definitions
 set $mod Mod4
@@ -7,27 +7,27 @@ set $down j
 set $up k
 set $right l
 
-# Apply wal themes
+# Appearance
+set $wallpaper ~/.config/wallpaper/*
 set $theme ~/.cache/wal
-#exec gsettings set org.gnome.desktop.interface $theme/gtk-theme wal
 include $theme/colors-sway
-
-# Applications
-set $term /usr/bin/kitty
-set $menu /usr/bin/rofi -show drun -theme $theme/colors-rofi-dark.rasi
-set $lockscreen /usr/bin/swaylock-blur -C ~/.config/swaylock/config
-set $browser /usr/bin/firefox
 
 gaps outer 10
 gaps inner 20
 
 default_border none
-#default_floating_border none
 hide_edge_borders both
 
+# TODO: Configure colors for floating windows
+
+# Applications
+set $term	/usr/bin/kitty
+set $menu	/usr/bin/rofi -show drun -theme $theme/colors-rofi-dark.rasi
+set $lockscreen	/usr/bin/swaylock-blur -C ~/.config/swaylock/config
+set $browser	/usr/bin/firefox
+
 # Output
-set $wallpaper ~/.config/wallpaper/*
-output * bg $wallpaper fill
+output *	bg $wallpaper fill
 output HDMI-A-2	pos 0		0 res 1920x1080
 output eDP-1	pos 1920	0 res 1920x1080
 output DP-3	pos -1920	0 res 1920x1080
@@ -35,6 +35,7 @@ output DP-4	pos 0		0 res 1920x1080
 
 workspace 1 output HDMI-A-2 # Primary workspace on external monitor
 workspace 2 output eDP-1
+# Other workspaces will follow 3 -> DP-3, 4 -> DP-4, etc.
 
 # Behavior
 focus_follows_mouse no
@@ -69,6 +70,7 @@ floating_modifier $mod normal
 
 # Reload ~/.config/sway/config
 bindsym $mod+Shift+c reload
+
 # Exit sway logging out of Wayland session
 bindsym $mod+Shift+e exit
 
@@ -89,10 +91,6 @@ bindsym $mod+e layout toggle split
 bindsym $mod+b splith
 bindsym $mod+v splitv
 
-# switch focused container layout styles
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-
 # make focused window fullscreen
 bindsym $mod+f fullscreen
 
@@ -104,10 +102,6 @@ bindsym $mod+space focus mode_toggle
 
 # focus parent container
 bindsym $mod+a focus parent
-
-# switch through workspaces
-#bindsym $mod+Alt+$left workspace prev
-#bindsym $mod+Alt+$right workspace next
 
 # switch workspace explicitly
 bindsym $mod+1 workspace 1
@@ -145,6 +139,7 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-include /etc/sway/config.d/*
+exec waybar -c ~/.config/waybar/config-top
+exec waybar -c ~/.config/waybar/config-bottom
 
-exec waybar
+include /etc/sway/config.d/*

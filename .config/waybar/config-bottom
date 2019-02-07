@@ -1,0 +1,30 @@
+{
+    "layer": "top",
+    "position": "bottom",
+    "height": 30,
+    "width": 1920,
+    "modules-left": ["custom/spotify"],
+    "modules-center": [],
+    "modules-right": ["custom/drive", "cpu", "memory"],
+    "custom/spotify": {
+        "format": " {}",
+        "max-length": 40,
+        "exec": "$HOME/.config/waybar/mediaplayer.sh 2",
+        "exec-if": "pgrep spotify"
+    },
+    "cpu": {
+        "interval": 10,
+        "format": "{}% ",
+        "max-length": 10
+    },
+    "memory": {
+        "interval": 10,
+        "format": "{}% ",
+        "max-length": 10
+    },
+    "custom/drive": {
+        "exec": "$HOME/.config/waybar/drive-nvme0n1p2.sh",
+        "interval": 600,
+        "format": "{} "
+    }
+}
