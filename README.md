@@ -85,4 +85,4 @@ I use [StreakyCobra's method](https://news.ycombinator.com/item?id=11071754) for
 * Generate wal color scheme:<br />
 `$ wal -i ~/.config/wallpaper/*`
 * Symlink wal GTK theme:<br />
-`$ ln -s -T ~/.themes/oomox-wal /usr/share/themes/wal`
+`$ ln -s ~/.themes/oomox-wal /usr/share/themes/oomox-wal`
