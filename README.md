@@ -18,7 +18,7 @@ This is my first rice, and still a work in progress. Please do not expect that t
 **WM**: [Sway](https://swaywm.org/) ([sway-git](https://aur.archlinux.org/packages/sway-git/)<sup>AUR</sup>)<br />
 **Bar**: [Waybar](https://github.com/alexays/waybar) ([waybar-git](https://aur.archlinux.org/packages/waybar-git)<sup>AUR</sup>)<br />
 **Launcher**: [rofi](https://github.com/DaveDavenport/rofi)<br />
-**Colors**: [pywal](https://github.com/dylanaraps/pywal) generates a color scheme based on the [wallpaper](#drop-in-wallpaper)!<br />
+**Colors**: [pywal](https://github.com/dylanaraps/pywal) generates a color scheme based on the [wallpaper](#setwallpaper-script)!<br />
 **Terminal**: [Kitty](https://sw.kovidgoyal.net/kitty/) - OpenGL GPU rendering <br />
 **Shell**: [zsh](http://zsh.sourceforge.net/)<br />
 **Font**: [FiraCode](https://github.com/tonsky/FiraCode) 10.0<br />
@@ -28,7 +28,7 @@ This is my first rice, and still a work in progress. Please do not expect that t
 ## Features
 Interesting configuration snippets and scripts you may find useful.
 
-### `setwallpaper` script
+### setwallpaper script
 Run `~/.scripts/setwallpaper path/to/new/wallpaper` to set your wallpaper.
 
 ```
@@ -42,6 +42,8 @@ wal -i ~/.config/wallpaper.png
 pkill waybar
 ~/.scripts/startwaybar.sh </dev/null &>/dev/null &
 ```
+
+My wallpaper can be found [here](https://www.deviantart.com/mikkolagerstedt/art/Vision-393388053).
 
 ### Waybar modules
 #### Spotify
