@@ -8,7 +8,7 @@
     "modules-right": ["custom/drive", "cpu", "memory"],
     "custom/spotify": {
         "format": " {}",
-        "max-length": 80,
+        "max-length": 40,
         "exec": "$HOME/.config/waybar/mediaplayer.sh 2",
         "exec-if": "pgrep spotify"
     },
@@ -23,7 +23,7 @@
         "max-length": 10
     },
     "custom/drive": {
-        "exec": "$HOME/.config/waybar/drive-nvme0n1p2.sh",
+        "exec": "$HOME/.scripts/drive-root.sh",
         "interval": 600,
         "format": "{} "
     }

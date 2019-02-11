@@ -1,0 +1,6 @@
+#!/bin/bash
+[ -z "$1" ] && exit
+convert "$1" ~/.config/wallpaper.png
+wal -i ~/.config/wallpaper.png
+pkill waybar
+~/.scripts/startwaybar.sh </dev/null &>/dev/null &

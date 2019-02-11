@@ -22,6 +22,7 @@ source ~/.oh-my-zsh/lib/termsupport.zsh
 ### Environment Variables
 export CHROOT=$HOME/chroot
 export EDITOR=vim
+export NNN_SCRIPT="$HOME/.scripts/setwallpaper"
 
 PS1=' %F{4}%1~ >%f '
 
@@ -32,7 +33,7 @@ alias ls='ls -h --color=auto'
 # Pacman aliases
 alias pacls='sudo pacman -Qet'
 alias pacorphs='sudo pacman -Qdt'
-alias pacupdgrade='sudo pacman -Syu'
+alias pacupgrade='sudo pacman -Syu'
 alias pacins='sudo pacman -Syu --needed'
 alias pacrm='sudo pacman -Rns'
 # dotfile storage method

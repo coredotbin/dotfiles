@@ -8,7 +8,7 @@ set $up k
 set $right l
 
 # Appearance
-set $wallpaper ~/.config/wallpaper/*
+set $wallpaper ~/.config/wallpaper.png
 set $theme ~/.cache/wal
 include $theme/colors-sway
 
@@ -139,7 +139,6 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-exec waybar -c ~/.config/waybar/config-top
-exec waybar -c ~/.config/waybar/config-bottom
+exec ~/.scripts/startwaybar.sh
 
 include /etc/sway/config.d/*

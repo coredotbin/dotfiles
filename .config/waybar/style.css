@@ -16,12 +16,14 @@ window#waybar {
 }
 
 #workspaces button {
+    color: @foreground;
     padding: 0 5px;
     background: transparent;
     border-bottom: 3px solid transparent;
 }
 
 #workspaces button.focused {
+    color: @foreground;
     background: @color2;
     border-bottom: 3px solid @color3;
 }

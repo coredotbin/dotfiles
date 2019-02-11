@@ -1,8 +1,7 @@
 # .dotfiles
 My configurations for Sway WM on Arch
 
-![Screenshot](/screenshot.png?raw=true)
-CC-BY-SA-4.0
+![Screenshot](screenshot.png?raw=true)
 
 This is my first rice, and still a work in progress. Please do not expect that these configuration files will work for your set up. Enjoy!
 
@@ -23,35 +22,35 @@ This is my first rice, and still a work in progress. Please do not expect that t
 **Terminal**: [Kitty](https://sw.kovidgoyal.net/kitty/) - OpenGL GPU rendering <br />
 **Shell**: [zsh](http://zsh.sourceforge.net/)<br />
 **Font**: [FiraCode](https://github.com/tonsky/FiraCode) 10.0<br />
-**Icons**: [FontAwesome](https://fontawesome.com/) ([otf-font-awesome](https://www.archlinux.org/packages/community/any/otf-font-awesome/))
+**Icons**: [FontAwesome](https://fontawesome.com/) ([otf-font-awesome](https://www.archlinux.org/packages/community/any/otf-font-awesome/))<br />
 **Lockscreen**: [swaylock](https://github.com/swaywm/swaylock) with cjbassi's [swaylock-blur](https://github.com/cjbassi/swaylock-blur) script
-**Other**: cmatrix, gotop, neofetch
 
 ## Features
-Interesting configurations and scripts you may find useful.
+Interesting configuration snippets and scripts you may find useful.
 
-### Drop-in wallpaper
-Replace the file in `.config/wallpaper/` to change your wallpaper. This configuration tells Sway to use any file in this directory:
-
-```
-set $wallpaper ~/.config/wallpaper/*
-output * bg $wallpaper fill
-```
-
-Reload your Sway configuration (default is `$meta+Shift+c`) to update the wallpaper. After replacing the image file, regenerate your pywal color scheme:
+### `setwallpaper` script
+Run `~/.scripts/setwallpaper path/to/new/wallpaper` to set your wallpaper.
 
 ```
-$ wal -i ~/.config/wallpaper/*
+~/.scripts/setwallpaper
+```
+```
+#!/bin/bash
+[ -z "$1" ] && exit
+convert "$1" ~/.config/wallpaper.png
+wal -i ~/.config/wallpaper.png
+pkill waybar
+~/.scripts/startwaybar.sh </dev/null &>/dev/null &
 ```
 
 ### Waybar modules
 #### Spotify
-The Waybar Spotify module ships default with Waybar! You can find SibrenVasse's [mediaplayer.py script on the Waybar repository](https://github.com/Alexays/Waybar/blob/master/resources/custom_modules/mediaplayer.py).
+The Waybar Spotify module ships with Waybar! You can find SibrenVasse's [mediaplayer.py script](https://github.com/Alexays/Waybar/blob/master/resources/custom_modules/mediaplayer.py) on the Waybar repository.
 
 #### Brightness 
 Using [brightnessctl](https://github.com/Hummer12007/brightnessctl) to get the backlight brightness:
 
-```
+```json
 "custom/brightness": {
 	"exec": "/usr/bin/brightnessctl --machine-readable | grep -o -E '([0-9]+%)'",
 	"interval": 1,
@@ -61,28 +60,24 @@ Using [brightnessctl](https://github.com/Hummer12007/brightnessctl) to get the b
 
 #### Drive capacity
 ```
+~/.config/waybar/config-bottom
+```
+```json
 "custom/drive": {
         "exec": "$HOME/.config/waybar/drive-nvme0n1p2.sh",
         "interval": 600,
         "format": "{} "
 }
 ```
+<br />
 
 ```
+~/.config/waybar/drive-root.sh
+```
+```bash
 #! /bin/bash
-/usr/bin/df -h | grep nvme0n1p2 | awk '{print $3"/"$2}'
+/usr/bin/df -h / | grep "/" | awk '{print $3"/"$2}'
 ```
 
-## Wallpaper
-The wallpaper is a photo of Little River in Tennessee that I took during my spring holiday in 2018.
-
-![Wallpaper](/.config/wallpaper/DSC_0140_edit.jpg?raw=true)
-CC-BY-SA-4.0
-
-## Install these dotfiles
-I use [StreakyCobra's method](https://news.ycombinator.com/item?id=11071754) for dotfile storage, and a good tutorial can be found [here](https://developer.atlassiancom/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo).
-
-* Generate wal color scheme:<br />
-`$ wal -i ~/.config/wallpaper/*`
-* Symlink wal GTK theme:<br />
-`$ ln -s ~/.themes/oomox-wal /usr/share/themes/oomox-wal`
+## Installation
+I use [StreakyCobra's method](https://news.ycombinator.com/item?id=11071754) for dotfile storage, and a good tutorial can be found [here](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo).
