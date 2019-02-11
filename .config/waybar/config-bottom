@@ -10,7 +10,8 @@
         "format": " {}",
         "max-length": 40,
         "exec": "$HOME/.config/waybar/mediaplayer.sh 2",
-        "exec-if": "pgrep spotify"
+        "exec-if": "pgrep spotify",
+	"on-click": "playerctl play-pause"
     },
     "cpu": {
         "interval": 10,
