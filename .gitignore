@@ -1,1 +1,3 @@
 .dotfiles
+.config/waybar/mediaplayer.sh
+.cache/wal/schemes
