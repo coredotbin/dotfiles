@@ -32,7 +32,7 @@ window#waybar {
     background: @color1;
 }
 
-#clock, #battery, #network, #pulseaudio, #custom-brightness, #mode, #custom-spotify, #custom-drive, #cpu, #memory {
+#clock, #battery, #network, #pulseaudio, #custom-brightness, #mode, #custom-spotify, #custom-drive, #custom-temp, #cpu, #memory {
     padding: 0 10px;
     margin: 0 5px;
     border-bottom: 3px solid @color3;

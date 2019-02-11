@@ -5,13 +5,23 @@
     "width": 1920,
     "modules-left": ["custom/spotify"],
     "modules-center": [],
-    "modules-right": ["custom/drive", "cpu", "memory"],
+    "modules-right": ["custom/drive", "custom/temp", "cpu", "memory"],
     "custom/spotify": {
         "format": " {}",
         "max-length": 40,
         "exec": "$HOME/.config/waybar/mediaplayer.sh 2",
         "exec-if": "pgrep spotify",
 	"on-click": "playerctl play-pause"
+    },
+    "custom/drive": {
+        "exec": "$HOME/.scripts/drive-root.sh",
+        "interval": 600,
+        "format": "{} "
+    }, 
+    "custom/temp": {
+        "exec": "$HOME/.scripts/temp.sh",
+        "interval": 5,
+        "format": "{} "
     },
     "cpu": {
         "interval": 10,
@@ -22,10 +32,5 @@
         "interval": 10,
         "format": "{}% ",
         "max-length": 10
-    },
-    "custom/drive": {
-        "exec": "$HOME/.scripts/drive-root.sh",
-        "interval": 600,
-        "format": "{} "
     }
 }
