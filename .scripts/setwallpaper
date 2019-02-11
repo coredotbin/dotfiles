@@ -4,5 +4,5 @@ convert "$1" ~/.config/wallpaper.png
 rm -rf ~/.cache/wal
 wal -q -i ~/.config/wallpaper.png
 pkill waybar
-~/.scripts/startwaybar.sh #</dev/null &>/dev/null &
+~/.scripts/startwaybar.sh </dev/null &>/dev/null &
 echo "Wallpaper changed to '$1'!"

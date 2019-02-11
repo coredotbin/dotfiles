@@ -7,7 +7,7 @@
     "modules-center": [],
     "modules-right": ["custom/drive", "custom/temp", "cpu", "memory"],
     "custom/spotify": {
-        "format": " {}",
+        "format": "_{}",
         "max-length": 40,
         "exec": "$HOME/.config/waybar/mediaplayer.sh 2",
         "exec-if": "pgrep spotify",

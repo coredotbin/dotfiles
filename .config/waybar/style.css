@@ -1,5 +1,7 @@
 /* Load wal colors */
 @import url("/home/corbin/.cache/wal/colors-waybar.css");
+@define-color good @color4;
+@define-color bad @color2;
 
 * {
     border: none;
@@ -23,7 +25,7 @@ window#waybar {
 }
 
 #workspaces button.focused {
-    color: @foreground;
+    color: @background;
     background: @color2;
     border-bottom: 3px solid @color3;
 }
@@ -39,17 +41,17 @@ window#waybar {
 }
 
 #battery.critical {
-    color: @color4;
+    color: @bad;
 }
 
 #battery.charging {
-    color: @color2;
+    color: @good;
 }
 
 #network.disconnected {
-    color: @color4;
+    color: @bad;
 }
 
 #pulseaudio.muted {
-    color: @color4;
+    color: @bad;
 }
