@@ -30,22 +30,14 @@ PS1=' %F{4}%1~ >%f '
 # General
 alias cp='cp -v'
 alias ls='ls -h --color=auto'
-alias enable-bl='sudo chmod 666 /sys/class/backlight/intel_backlight/brightness'
 # Switch audio
 alias audio-hdmi='pacmd set-card-profile 0 output:hdmi-stereo-extra1'
 alias audio-laptop='pacmd set-card-profile 0 output:analog-stereo+input:analog-stereo'
-# Pacman aliases
-alias pacls='sudo pacman -Qet'
-alias pacorphs='sudo pacman -Qdt'
-alias pacupgrade='sudo pacman -Syu'
-alias pacins='sudo pacman -Syu --needed'
-alias pacrm='sudo pacman -Rns'
 # dotfile storage method
 alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # Start sway if running in tty1
 if [ "$(tty)" = "/dev/tty1" ]; then
-	# Sway
 	exec sway
 	exit 0
 fi
