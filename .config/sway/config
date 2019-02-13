@@ -21,7 +21,7 @@ set $processes	$term /usr/bin/gotop
 set $wallpaper	~/.config/wallpaper.png
 set $colors	~/.cache/wal
 
-include $theme/colors-sway
+include $colors/colors-sway
 set $good $color4
 set $bad $color2
 
