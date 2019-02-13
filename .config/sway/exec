@@ -1,0 +1,15 @@
+### sway execs
+
+# Start waybar
+exec /usr/bin/waybar -c ~/.config/waybar/config-top
+exec /usr/bin/waybar -c ~/.config/waybar/config-bottom
+# Start redshift
+# Probably redundant given the default config location?
+exec redshift -c ~/.config/redshift/redshift.conf &
+# Start swayidle
+exec swayidle -w \
+	timeout 300	'swaylock-blur -f -c ~/.config/swaylock/config' \
+	timeout 600 	'swaymsg "output * dpms off"' \
+	resume 		'swaymsg "output * dpms on"' \
+	before-sleep	'swaylock-blur -f -c ~/.config/swaylock/config' &
+

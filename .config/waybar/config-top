@@ -5,7 +5,7 @@
     "width": 1920,
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["custom/brightness", "pulseaudio", "network", "battery", "clock"],
+    "modules-right": ["pulseaudio", "network", "battery", "clock"],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
@@ -40,10 +40,10 @@
             "car": "",
             "default": ["", ""]
         }
-    },
-    "custom/brightness": {
-        "exec": "/usr/bin/brightnessctl --machine-readable | grep -o -E '([0-9]+%)'",
-        "interval": 1,
-	"format": "{} "
-    }
+    }//,
+    //"custom/brightness": {
+    //    "exec": "/usr/bin/brightnessctl --machine-readable | grep -o -E '([0-9]+%)'",
+    //    "interval": 1,
+    //    "format": "{} "
+    //}
 }

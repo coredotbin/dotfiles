@@ -1,76 +1,91 @@
 ### sway config
 
-# Key definitions
+### Variables
+# Keys
 set $mod	Mod4
 set $left	h
 set $down	j
 set $up		k
 set $right	l
 
-# Appearance
+# Applications
+set $term	/usr/bin/kitty
+set $menu	/usr/bin/rofi -show drun -theme $colors/colors-rofi-dark.rasi
+set $lock	/usr/bin/swaylock-blur -f -C ~/.config/swaylock/config
+set $web	/usr/bin/firefox-nightly -p corbin-personal
+set $web-work	/usr/bin/firefox-nightly -p corbin-work
+set $files	$term /usr/bin/nnn # New terminal emulator instance for nnn
+set $processes	$term /usr/bin/gotop
+
+### Appearance
 set $wallpaper	~/.config/wallpaper.png
-set $theme	~/.cache/wal
+set $colors	~/.cache/wal
 
 include $theme/colors-sway
+set $good $color4
+set $bad $color2
 
 gaps outer 10
 gaps inner 20
 
 default_border none
+default_floating_border normal
 hide_edge_borders both
 
-# TODO: Configure colors for floating windows
-
-
-# Applications
-set $term	/usr/bin/kitty
-set $menu	/usr/bin/rofi -show drun -theme $theme/colors-rofi-dark.rasi
-set $lockscreen	/usr/bin/swaylock-blur -C ~/.config/swaylock/config
-set $web	/usr/bin/firefox
-set $files	$term /usr/bin/nnn # New terminal emulator instance for nnn
+# Floating colors	border		background	text		indicator	child border
+client.focused		$good	 	$good		$foreground	$foreground	$good
+client.focused_inactive	$good		$good		$foreground	$foreground	$good
+client.unfocused	$good		$good		$foreground	$foreground	$good
+client.urgent		$bad		$bad		$background	$background	$bad
 
 # Outputs
 output *	bg	$wallpaper	fill
 output HDMI-A-2	pos	0	0	res 1920x1080
 output eDP-1	pos	1920	0	res 1920x1080
-# Work dock outputs
+# Work dock
 output DP-3	pos	-1920	0	res 1920x1080
 output DP-4	pos	0	0	res 1920x1080
 
-workspace 1: output HDMI-A-2 # Primary workspace on external monitor
-workspace 2: output eDP-1
-# Other workspaces will follow 3 -> DP-3, 4 -> DP-4, etc.
-
-# Behavior
+#### Behavior
 focus_follows_mouse no
 
-### Key bindings
-# Lenovo Fn keys
+# Floating window modifier
+floating_modifier $mod normal
+
+for_window [title="mpv"] floating enable
+for_window [title="imv"] floating enable
+
+## Key bindings
+include ~/.config/sway/workspaces
+
+## Lenovo Fn keys
 # Volume
 bindsym XF86AudioMute exec pulseaudio-ctl mute
 bindsym XF86AudioRaiseVolume exec pulseaudio-ctl up
 bindsym XF86AudioLowerVolume exec pulseaudio-ctl down
 bindsym XF86AudioMicMute exec pulseaudio-ctl mute-input
-# Brightness
-bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
-bindsym XF86MonBrightnessUp exec brightnessctl s +5%
+# Brightness - using redshift to automatically adjust
+#bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
+#bindsym XF86MonBrightnessUp exec brightnessctl s +5%
 # Lock screen
-bindsym XF86Display exec $lockscreen
+bindsym XF86Display exec $lock
 
+## Applications
 # Launch terminal
 bindsym $mod+Return exec $term
-# Launch web browser
+# Launch Firefox with personal profile
 bindsym $mod+i exec $web
+# Launch Firefox with work profile
+bindsym $mod+o exec $web-work
 # Launch file browser
 bindsym $mod+n exec $files
+# Launch process viewer
+bindsym $mod+p exec $processes
 # Launch menu
 bindsym $mod+d exec $menu
 
 # Kill focused window
 bindsym $mod+Shift+q kill
-
-# Floating window modifier
-floating_modifier $mod normal
 
 # Reload ~/.config/sway/config
 bindsym $mod+Shift+c reload
@@ -108,30 +123,6 @@ bindsym $mod+space focus mode_toggle
 # Focus parent container
 bindsym $mod+a focus parent
 
-# Switch to workspace 
-bindsym $mod+1 workspace 
-bindsym $mod+2 workspace 
-bindsym $mod+3 workspace 
-bindsym $mod+4 workspace 
-bindsym $mod+5 workspace 
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
-
-# Move container to workspace
-bindsym $mod+Shift+1 move container to workspace 
-bindsym $mod+Shift+2 move container to workspace 
-bindsym $mod+Shift+3 move container to workspace 
-bindsym $mod+Shift+4 move container to workspace 
-bindsym $mod+Shift+5 move container to workspace 
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
-
 # Resize mode
 mode "resize" {
     bindsym $left resize shrink width 10 px or 10 ppt
@@ -145,7 +136,7 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# Start Waybar
-exec ~/.scripts/startwaybar.sh
+# Start applications on startup
+include ~/.config/sway/exec
 
 include /etc/sway/config.d/*
