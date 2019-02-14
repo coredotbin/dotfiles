@@ -1,5 +1,7 @@
 ### sway execs
 
+# Start mako notification server
+exec mako
 # Start waybar
 exec /usr/bin/waybar -c ~/.config/waybar/config-top
 exec /usr/bin/waybar -c ~/.config/waybar/config-bottom
