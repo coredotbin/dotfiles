@@ -12,6 +12,7 @@ exec redshift -c ~/.config/redshift/redshift.conf &
 exec swayidle -w \
 	timeout 300	'swaylock-blur -f -c ~/.config/swaylock/config' \
 	timeout 600 	'swaymsg "output * dpms off"' \
+	timeout 900	'systemctl suspend' \
 	resume 		'swaymsg "output * dpms on"' \
 	before-sleep	'swaylock-blur -f -c ~/.config/swaylock/config' &
 
