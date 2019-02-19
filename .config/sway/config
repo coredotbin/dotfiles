@@ -1,5 +1,7 @@
 ### sway config
 
+set $colors	~/.cache/wal
+
 ### Variables
 # Keys
 set $mod	Mod4
@@ -18,9 +20,7 @@ set $files	$term /usr/bin/nnn # New terminal emulator instance for nnn
 set $processes	$term /usr/bin/gotop
 
 ### Appearance
-set $wallpaper	~/.config/wallpaper.png
-set $colors	~/.cache/wal
-
+# include wal colors for sway
 include $colors/colors-sway
 set $good $color4
 set $bad $color2
@@ -32,13 +32,14 @@ default_border none
 default_floating_border normal
 hide_edge_borders both
 
-# Floating colors	border		background	text		indicator	child border
+# Floating windows	border		background	text		indicator	child border
 client.focused		$good	 	$good		$foreground	$foreground	$good
 client.focused_inactive	$good		$good		$foreground	$foreground	$good
 client.unfocused	$good		$good		$foreground	$foreground	$good
 client.urgent		$bad		$bad		$background	$background	$bad
 
 # Outputs
+# $wallpaper defined by wal in $colors/colors-sway
 output *	bg	$wallpaper	fill
 output HDMI-A-2	pos	0	0	res 1920x1080
 output eDP-1	pos	1920	0	res 1920x1080
@@ -84,6 +85,10 @@ bindsym $mod+p exec $processes
 # Launch menu
 bindsym $mod+d exec $menu
 
+# Take screenshots
+bindsym Control+Print exec NAME=screenshot_$(date "+%Y-%m-%d_%H-%M-%S" | cut -c 1-19).png && grim ~/Pictures/screenshots/$NAME && notify-send -i ~/Pictures/screenshots/$NAME "Screenshot captured" $NAME
+bindsym Print exec NAME=screenshot_$(date "+%Y-%m-%d_%H-%M-%S" | cut -c 1-19).png && grim -g "$(slurp)" ~/Pictures/screenshots/$NAME && notify-send -i ~/Pictures/screenshots/$NAME "Screenshot captured" $NAME
+
 # Kill focused window
 bindsym $mod+Shift+q kill
 
@@ -114,7 +119,7 @@ bindsym $mod+v splitv
 # Make focused window fullscreen
 bindsym $mod+f fullscreen
 
-# Toggle focused window between tiling/floating
+# Toggle focused window between tiling/floating mode
 bindsym $mod+Shift+space floating toggle
 
 # Toggle focus between tiling/floating areas

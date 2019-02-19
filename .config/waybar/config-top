@@ -10,7 +10,7 @@
         "format": "<span style=\"italic\">{}</span>"
     },
     "clock": {
-        "format": "{:%Y-%m-%d %H:%M}"
+        "format": "{:%Y-%m-%d %H:%M }"
     },
     "battery": {
         "states": {
