@@ -1,23 +1,9 @@
 ### sway config
 
 set $colors	~/.cache/wal
+set $config	~/.config/sway
 
-### Variables
-# Keys
-set $mod	Mod4
-set $left	h
-set $down	j
-set $up		k
-set $right	l
-
-# Applications
-set $term	/usr/bin/kitty
-set $menu	/usr/bin/rofi -show drun -theme $colors/colors-rofi-dark.rasi
-set $lock	/usr/bin/swaylock-blur -f -C ~/.config/swaylock/config
-set $web	/usr/bin/firefox-nightly -p corbin-personal
-set $web-work	/usr/bin/firefox-nightly -p corbin-work
-set $files	$term /usr/bin/nnn # New terminal emulator instance for nnn
-set $processes	$term /usr/bin/gotop
+include $config/var
 
 ### Appearance
 # include wal colors for sway
@@ -30,7 +16,6 @@ gaps inner 20
 
 default_border none
 default_floating_border normal
-hide_edge_borders both
 
 # Floating windows	border		background	text		indicator	child border
 client.focused		$good	 	$good		$foreground	$foreground	$good
@@ -47,54 +32,70 @@ output eDP-1	pos	1920	0	res 1920x1080
 output DP-3	pos	-1920	0	res 1920x1080
 output DP-4	pos	0	0	res 1920x1080
 
-#### Behavior
+### Behavior
+mouse_warping none
 focus_follows_mouse no
+focus_wrapping no
 
-# Floating window modifier
 floating_modifier $mod normal
 
 for_window [title="mpv"] floating enable
 for_window [title="imv"] floating enable
 
-## Key bindings
-include ~/.config/sway/workspaces
+### Key bindings
+## Inputs
+include $config/input
+## Workspaces
+include $config/workspaces
 
 ## Lenovo Fn keys
 # Volume
-bindsym XF86AudioMute exec pulseaudio-ctl mute
-bindsym XF86AudioRaiseVolume exec pulseaudio-ctl up
-bindsym XF86AudioLowerVolume exec pulseaudio-ctl down
-bindsym XF86AudioMicMute exec pulseaudio-ctl mute-input
-# Brightness - using redshift to automatically adjust
+set $audio /usr/bin/pulseaudio-ctl
+bindsym XF86AudioMute exec $audio mute
+bindsym XF86AudioRaiseVolume exec $audio up
+bindsym XF86AudioLowerVolume exec $audio down
+bindsym XF86AudioMicMute exec $audio mute-input
+# Brightness - switched to redshift for automatically adjustment
 #bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
 #bindsym XF86MonBrightnessUp exec brightnessctl s +5%
 # Lock screen
 bindsym XF86Display exec $lock
 
 ## Applications
-# Launch terminal
+# terminal
 bindsym $mod+Return exec $term
-# Launch Firefox with personal profile
+# web browser in personal profile
 bindsym $mod+i exec $web
-# Launch Firefox with work profile
+# web broswer in work profile
 bindsym $mod+o exec $web-work
-# Launch file browser
+# file browser
 bindsym $mod+n exec $files
-# Launch process viewer
+# process viewer
 bindsym $mod+p exec $processes
-# Launch menu
+# menu
 bindsym $mod+d exec $menu
 
-# Take screenshots
-bindsym Control+Print exec NAME=screenshot_$(date "+%Y-%m-%d_%H-%M-%S" | cut -c 1-19).png && grim ~/Pictures/screenshots/$NAME && notify-send -i ~/Pictures/screenshots/$NAME "Screenshot captured" $NAME
-bindsym Print exec NAME=screenshot_$(date "+%Y-%m-%d_%H-%M-%S" | cut -c 1-19).png && grim -g "$(slurp)" ~/Pictures/screenshots/$NAME && notify-send -i ~/Pictures/screenshots/$NAME "Screenshot captured" $NAME
+## Media player controls
+bindsym $mod+Left exec playerctl previous
+bindsym $mod+Right exec playerctl next
+bindsym $mod+Down exec playerctl play-pause
+
+## Screenshots
+# Capture the focused output
+bindsym Control+Print exec NAME=screenshot_$(date "+%Y-%m-%d_%H-%M-%S" | cut -c 1-19).png && \
+	grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') \
+		$(xdg-user-dir PICTURES)/screenshots/$NAME && \
+	notify-send -i $(xdg-user-dir PICTURES)/screenshots/$NAME "Screenshot captured" $NAME
+# Capture a region
+bindsym Print exec NAME=screenshot_$(date "+%Y-%m-%d_%H-%M-%S" | cut -c 1-19).png && \
+	grim -g "$(slurp)" $(xdg-user-dir PICTURES)/screenshots/$NAME && \
+	notify-send -i $(xdg-user-dir PICTURES)/screenshots/$NAME "Screenshot captured" $NAME
 
 # Kill focused window
 bindsym $mod+Shift+q kill
 
-# Reload ~/.config/sway/config
+# Reload this config
 bindsym $mod+Shift+c reload
-
 # Exit sway logging out of Wayland session
 bindsym $mod+Shift+e exit
 
@@ -104,7 +105,6 @@ bindsym $mod+$left focus left
 bindsym $mod+$down focus down
 bindsym $mod+$up focus up
 bindsym $mod+$right focus right
-
 # Move focused window
 bindsym $mod+Shift+$left move left
 bindsym $mod+Shift+$down move down
@@ -121,19 +121,17 @@ bindsym $mod+f fullscreen
 
 # Toggle focused window between tiling/floating mode
 bindsym $mod+Shift+space floating toggle
-
 # Toggle focus between tiling/floating areas
 bindsym $mod+space focus mode_toggle
-
 # Focus parent container
 bindsym $mod+a focus parent
 
 # Resize mode
 mode "resize" {
-    bindsym $left resize shrink width 10 px or 10 ppt
-    bindsym $down resize grow height 10 px or 10 ppt
-    bindsym $up	resize shrink height 10 px or 10 ppt
-    bindsym $right resize grow width 10 px or 10 ppt
+    bindsym $left resize shrink width 5 px or 5 ppt
+    bindsym $down resize grow height 5 px or 5 ppt
+    bindsym $up	resize shrink height 5 px or 5 ppt
+    bindsym $right resize grow width 5 px or 5 ppt
 
     # Return to default mode
     bindsym Return mode "default"
@@ -141,7 +139,7 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# Start applications on startup
-include ~/.config/sway/exec
+# Startup applications
+include $config/exec
 
 include /etc/sway/config.d/*

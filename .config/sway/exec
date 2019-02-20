@@ -1,12 +1,14 @@
-### sway execs
+### sway startup applications
 
 # Start mako notification server
-exec mako
+exec_always pkill mako &&  mako
 # Start waybar
-exec /usr/bin/waybar -c ~/.config/waybar/config-top
-exec /usr/bin/waybar -c ~/.config/waybar/config-bottom
+exec_always pkill waybar && \
+	~/.scripts/startwaybar.sh &
+	#/usr/bin/waybar -c ~/.config/waybar/config-top && \
+	#/usr/bin/waybar -c ~/.config/waybar/config-bottom
 # Start redshift
-# Probably redundant given the default config location?
+# Probably redundant giving the default config location?
 exec redshift -c ~/.config/redshift/redshift.conf &
 # Start swayidle
 exec swayidle -w \

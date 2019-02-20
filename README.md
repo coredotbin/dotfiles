@@ -19,31 +19,43 @@ This is my first rice, and still a work in progress. Please do not expect that t
 **Bar**: [Waybar](https://github.com/alexays/waybar) ([waybar-git](https://aur.archlinux.org/packages/waybar-git)<sup>AUR</sup>)<br />
 **Launcher**: [rofi](https://github.com/DaveDavenport/rofi)<br />
 **Colors**: [pywal](https://github.com/dylanaraps/pywal) generates a color scheme based on the [wallpaper](#setwallpaper-script)!<br />
+**Wallpaper** can be found [here](https://www.deviantart.com/mikkolagerstedt/art/Vision-393388053)<br />
 **Terminal**: [Kitty](https://sw.kovidgoyal.net/kitty/) - OpenGL GPU rendering <br />
 **Shell**: [zsh](http://zsh.sourceforge.net/)<br />
 **Font**: [FiraCode](https://github.com/tonsky/FiraCode) 10.0<br />
 **Icons**: [FontAwesome](https://fontawesome.com/) ([otf-font-awesome](https://www.archlinux.org/packages/community/any/otf-font-awesome/))<br />
-**Lockscreen**: [swaylock](https://github.com/swaywm/swaylock) with cjbassi's [swaylock-blur](https://github.com/cjbassi/swaylock-blur) script
+**Lockscreen**: [swaylock](https://github.com/swaywm/swaylock) with cjbassi's [swaylock-blur](https://github.com/cjbassi/swaylock-blur) script<br />
+**Notifications**: [mako](https://wayland.emersion.fr/mako)
 
 ## Features
 Interesting configuration snippets and scripts you may find useful.
 
-### setwallpaper script
-Run `~/.scripts/setwallpaper path/to/new/wallpaper` to set your wallpaper.
+### Screenshots
+Taking screenshots using emersion's [grim](https://wayland.emersion.fr/grim/) and [slurp](https://wayland.emersion.fr/slurp/) tools.
 
 ```
-~/.scripts/setwallpaper
+# Capture the focused output
+bindsym Control+Print exec NAME=screenshot_$(date "+%Y-%m-%d_%H-%M-%S" | cut -c 1-19).png && \
+	grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') \
+		$(xdg-user-dir PICTURES)/screenshots/$NAME && \
+	notify-send -i $(xdg-user-dir PICTURES)/screenshots/$NAME "Screenshot captured" $NAME
+# Capture a region
+bindsym Print exec NAME=screenshot_$(date "+%Y-%m-%d_%H-%M-%S" | cut -c 1-19).png && \
+	grim -g "$(slurp)" $(xdg-user-dir PICTURES)/screenshots/$NAME && \
+	notify-send -i $(xdg-user-dir PICTURES)/screenshots/$NAME "Screenshot captured" $NAME
 ```
+
+### setwallpaper script
+Usage: `./setwallpaper /path/to/new/wallpaper`
+
 ```
 #!/bin/bash
 [ -z "$1" ] && exit
 convert "$1" ~/.config/wallpaper.png
 wal -i ~/.config/wallpaper.png
-pkill waybar
+pkill waybar 
 ~/.scripts/startwaybar.sh </dev/null &>/dev/null &
 ```
-
-My wallpaper can be found [here](https://www.deviantart.com/mikkolagerstedt/art/Vision-393388053).
 
 ### Waybar modules
 #### Spotify
@@ -61,21 +73,15 @@ Using [brightnessctl](https://github.com/Hummer12007/brightnessctl) to get the b
 ```
 
 #### Drive capacity
-```
-~/.config/waybar/config-bottom
-```
 ```json
 "custom/drive": {
-        "exec": "$HOME/.config/waybar/drive-nvme0n1p2.sh",
+        "exec": "$HOME/.scripts/drive-root.sh",
         "interval": 600,
         "format": "{} "
 }
 ```
 <br />
 
-```
-~/.config/waybar/drive-root.sh
-```
 ```bash
 #! /bin/bash
 /usr/bin/df -h / | grep "/" | awk '{print $3"/"$2}'
