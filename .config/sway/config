@@ -35,12 +35,15 @@ output DP-4	pos	0	0	res 1920x1080
 ### Behavior
 mouse_warping none
 focus_follows_mouse no
+# Do not wrap to the next workspace when moving focus
 focus_wrapping no
 
 floating_modifier $mod normal
 
 for_window [title="mpv"] floating enable
 for_window [title="imv"] floating enable
+for_window [title="question"] floating enable #pos 1710 40
+for_window [title="Minecraft"] floating enable
 
 ### Key bindings
 ## Inputs
@@ -50,12 +53,11 @@ include $config/workspaces
 
 ## Lenovo Fn keys
 # Volume
-set $audio /usr/bin/pulseaudio-ctl
 bindsym XF86AudioMute exec $audio mute
 bindsym XF86AudioRaiseVolume exec $audio up
 bindsym XF86AudioLowerVolume exec $audio down
 bindsym XF86AudioMicMute exec $audio mute-input
-# Brightness - switched to redshift for automatically adjustment
+# Brightness - redshift automatically adjusts brightness
 #bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
 #bindsym XF86MonBrightnessUp exec brightnessctl s +5%
 # Lock screen
@@ -76,20 +78,25 @@ bindsym $mod+p exec $processes
 bindsym $mod+d exec $menu
 
 ## Media player controls
-bindsym $mod+Left exec playerctl previous
-bindsym $mod+Right exec playerctl next
-bindsym $mod+Down exec playerctl play-pause
+bindsym $mod+Left exec $player previous
+bindsym $mod+Right exec $player next
+bindsym $mod+Down exec $player play-pause
+# Cooler Master Pro S bindings
+bindsym $mod+Insert exec $player play-pause
+bindsym $mod+Delete exec $player stop
+bindsym $mod+Home exec $player next
+bindsym $mod+End exec $player previous
 
 ## Screenshots
 # Capture the focused output
-bindsym Control+Print exec NAME=screenshot_$(date "+%Y-%m-%d_%H-%M-%S" | cut -c 1-19).png && \
+bindsym Control+Print exec name=screenshot_$(date "+%Y-%m-%d_%H-%M-%S" | cut -c 1-19).png && \
 	grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') \
-		$(xdg-user-dir PICTURES)/screenshots/$NAME && \
-	notify-send -i $(xdg-user-dir PICTURES)/screenshots/$NAME "Screenshot captured" $NAME
+		$(xdg-user-dir PICTURES)/screenshots/$name && \
+	notify-send -i $(xdg-user-dir PICTURES)/screenshots/$name "Screenshot captured" $name
 # Capture a region
-bindsym Print exec NAME=screenshot_$(date "+%Y-%m-%d_%H-%M-%S" | cut -c 1-19).png && \
-	grim -g "$(slurp)" $(xdg-user-dir PICTURES)/screenshots/$NAME && \
-	notify-send -i $(xdg-user-dir PICTURES)/screenshots/$NAME "Screenshot captured" $NAME
+bindsym Print exec name=screenshot_$(date "+%Y-%m-%d_%H-%M-%S" | cut -c 1-19).png && \
+	grim -g "$(slurp)" $(xdg-user-dir PICTURES)/screenshots/$name && \
+	notify-send -i $(xdg-user-dir PICTURES)/screenshots/$name "Screenshot captured" $name
 
 # Kill focused window
 bindsym $mod+Shift+q kill

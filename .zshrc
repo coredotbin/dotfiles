@@ -22,7 +22,8 @@ source ~/.oh-my-zsh/lib/termsupport.zsh
 ### Environment Variables
 export CHROOT=$HOME/chroot
 export EDITOR=vim
-export NNN_SCRIPT="$HOME/.scripts/setwallpaper"
+export PAGER=less
+#export NNN_SCRIPT="$HOME/.scripts/setwallpaper"
 
 PS1=' %F{4}%1~ >%f '
 
@@ -33,6 +34,7 @@ alias ls='ls -h --color=auto'
 # Switch audio
 alias audio-hdmi='pacmd set-card-profile 0 output:hdmi-stereo-extra1'
 alias audio-laptop='pacmd set-card-profile 0 output:analog-stereo+input:analog-stereo'
+alias audio-headphones='pacmd set-card-profile 0 output:analog-surround-40'
 # dotfile storage method
 alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 

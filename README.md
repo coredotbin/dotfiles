@@ -35,14 +35,14 @@ Taking screenshots using emersion's [grim](https://wayland.emersion.fr/grim/) an
 
 ```
 # Capture the focused output
-bindsym Control+Print exec NAME=screenshot_$(date "+%Y-%m-%d_%H-%M-%S" | cut -c 1-19).png && \
+bindsym Control+Print exec name=screenshot_$(date "+%Y-%m-%d_%H-%M-%S" | cut -c 1-19).png && \
 	grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') \
-		$(xdg-user-dir PICTURES)/screenshots/$NAME && \
-	notify-send -i $(xdg-user-dir PICTURES)/screenshots/$NAME "Screenshot captured" $NAME
+		$(xdg-user-dir PICTURES)/screenshots/$name && \
+	notify-send -i $(xdg-user-dir PICTURES)/screenshots/$name "Screenshot captured" $name
 # Capture a region
-bindsym Print exec NAME=screenshot_$(date "+%Y-%m-%d_%H-%M-%S" | cut -c 1-19).png && \
-	grim -g "$(slurp)" $(xdg-user-dir PICTURES)/screenshots/$NAME && \
-	notify-send -i $(xdg-user-dir PICTURES)/screenshots/$NAME "Screenshot captured" $NAME
+bindsym Print exec name=screenshot_$(date "+%Y-%m-%d_%H-%M-%S" | cut -c 1-19).png && \
+	grim -g "$(slurp)" $(xdg-user-dir PICTURES)/screenshots/$name && \
+	notify-send -i $(xdg-user-dir PICTURES)/screenshots/$name "Screenshot captured" $name
 ```
 
 ### setwallpaper script
@@ -88,4 +88,4 @@ Using [brightnessctl](https://github.com/Hummer12007/brightnessctl) to get the b
 ```
 
 ## Installation
-I use [StreakyCobra's method](https://news.ycombinator.com/item?id=11071754) for dotfile storage, and a good tutorial can be found [here](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo).
+I use [StreakyCobra's method](https://news.ycombinator.com/item?id=11071754) for dotfile backup and storage. A good tutorial can be found [here](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo).

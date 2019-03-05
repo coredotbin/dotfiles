@@ -1,20 +1,17 @@
 ### sway startup applications
 
 # Start mako notification server
-exec_always pkill mako &&  mako
+exec mako
 # Start waybar
-exec_always pkill waybar && \
-	~/.scripts/startwaybar.sh &
-	#/usr/bin/waybar -c ~/.config/waybar/config-top && \
-	#/usr/bin/waybar -c ~/.config/waybar/config-bottom
+exec /usr/bin/waybar -c ~/.config/waybar/config-top &
+exec /usr/bin/waybar -c ~/.config/waybar/config-bottom &
 # Start redshift
 # Probably redundant giving the default config location?
 exec redshift -c ~/.config/redshift/redshift.conf &
 # Start swayidle
 exec swayidle -w \
 	timeout 300	'swaylock-blur -f -c ~/.config/swaylock/config' \
-	timeout 600 	'swaymsg "output * dpms off"' \
-	timeout 900	'systemctl suspend' \
+	timeout 600 	'swaymsg "output * dpms off" && systemctl suspend' \
 	resume 		'swaymsg "output * dpms on"' \
 	before-sleep	'swaylock-blur -f -c ~/.config/swaylock/config' &
 

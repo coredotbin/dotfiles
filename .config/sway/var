@@ -15,3 +15,5 @@ set $web	/usr/bin/firefox-nightly -p corbin-personal
 set $web-work	/usr/bin/firefox-nightly -p corbin-work
 set $files	$term /usr/bin/nnn # New terminal emulator instance
 set $processes	$term /usr/bin/gotop
+set $audio	/usr/bin/pulseaudio-ctl
+set $player	/usr/bin/playerctl
