@@ -42,7 +42,7 @@ floating_modifier $mod normal
 
 for_window [title="mpv"] floating enable
 for_window [title="imv"] floating enable
-for_window [title="question"] floating enable #pos 1710 40
+for_window [title="Question"] floating enable
 for_window [title="Minecraft"] floating enable
 
 ### Key bindings
@@ -69,7 +69,9 @@ bindsym $mod+Return exec $term
 # web browser in personal profile
 bindsym $mod+i exec $web
 # web broswer in work profile
-bindsym $mod+o exec $web-work
+bindsym $mod+u exec $web-work
+# office suite
+bindsym $mod+o exec $office
 # file browser
 bindsym $mod+n exec $files
 # process viewer
