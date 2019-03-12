@@ -11,7 +11,7 @@
 	},
 	"clock": {
 		"format": "{:%Y-%m-%d %H:%M:%S} ",
-		"interval": 0.5
+		"interval": 1
 	},
 	"battery": {
 		"states": {
