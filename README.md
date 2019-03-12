@@ -1,14 +1,17 @@
 # .dotfiles
 My configurations for Sway WM on Arch
 
-![Screenshot](screenshot.png?raw=true)
+![workflow](screenshots/workflow.png?raw=true)
 
 This is my first rice, and still a work in progress. Please do not expect that these configuration files will work for your set up. Enjoy!
 
 ## Details
+
+![neofetch](screenshots/neofetch.png?raw=true)
+
 **Host**: ThinkPad T470
 * Intel i7-7500U
-* Intel HD Graphics 620 with 512 MB allocated
+* Intel HD Graphics 620 512 MB
 * 14" FHD IPS display
 * 2x 4 GB DDR4 2133MHz
 * 256 GB NVMe SSD
