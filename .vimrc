@@ -23,3 +23,8 @@ syntax on
 
 set noshowmode
 set number
+
+" Tab preferences
+set tabstop=4
+set noexpandtab
+set shiftwidth=4

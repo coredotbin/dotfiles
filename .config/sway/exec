@@ -1,17 +1,25 @@
 ### sway startup applications
 
 # Start mako notification server
-exec mako
-# Start waybar
-exec /usr/bin/waybar -c ~/.config/waybar/config-top &
-exec /usr/bin/waybar -c ~/.config/waybar/config-bottom &
+exec if ! pgrep redshift; then mako; fi
+
 # Start redshift
 # Probably redundant giving the default config location?
-exec redshift -c ~/.config/redshift/redshift.conf &
+exec_always if ! pgrep redshift; then \
+	echo "Starting redshift..."; \
+	redshift -c ~/.config/redshift/redshift.conf; \
+fi
+
+# Start waybar
+exec_always ~/.scripts/start-bar
+
 # Start swayidle
+# Don't need exec_always with new idle_inhibitor waybar module
 exec swayidle -w \
 	timeout 300	'swaylock-blur -f -c ~/.config/swaylock/config' \
 	timeout 600 	'swaymsg "output * dpms off" && systemctl suspend' \
 	resume 		'swaymsg "output * dpms on"' \
 	before-sleep	'swaylock-blur -f -c ~/.config/swaylock/config' &
 
+# Keep me updated
+exec thunderbird

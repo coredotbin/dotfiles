@@ -2,56 +2,82 @@
 @import url("/home/corbin/.cache/wal/colors-waybar.css");
 @define-color good @color4;
 @define-color bad @color2;
+@define-color underline @good;
+@define-color button @good;
 
 * {
-    border: none;
-    border-radius: 0;
-    font-family: Fira Code, Helvetica, Arial, sans-serif;
-    font-size: 10pt;
-    min-height: 0;
+	border: none;
+	border-radius: 0;
+	font-family: Fira Code, Helvetica, Arial, sans-serif;
+	font-size: 10pt;
+	min-height: 0;
 }
 
 window#waybar {
-    opacity: 0.7; /* Should be the same opacity as terminal background */
-    background: @background;
-    color: @foreground;
+	opacity: 0.8; /* Should be the same opacity as terminal background */
+	background: @background;
+	color: @foreground;
 }
 
 #workspaces button {
-    color: @foreground;
-    padding: 0 5px;
-    background: transparent;
-    border-bottom: 3px solid transparent;
+	color: @foreground;
+	padding: 0 5px;
+	padding-bottom: 3px;
+	background: transparent;
+	border-top: 3px solid transparent;
 }
 
 #workspaces button.focused {
-    color: @background;
-    background: @color2;
-    border-bottom: 3px solid @color3;
+	color: @background;
+	background: @good;
+	border-top: 3px solid @underline;
 }
 
+/* Resize mode, etc. */
 #mode {
-    background: @color1;
+	background: @color1;
 }
 
-#clock, #battery, #network, #pulseaudio, #custom-brightness, #mode, #custom-spotify, #custom-drive, #custom-temp, #cpu, #memory {
-    padding: 0 10px;
-    margin: 0 5px;
-    border-bottom: 3px solid @color3;
+/* Top modules */
+#mode, #idle_inhibitor, #pulseaudio, #custom-brightness, #network, #battery, #clock {
+	padding: 0 10px;
+	padding-bottom: 3px;
+	margin: 0 5px;
+	border-top: 3px solid @underline;
+}
+
+/* Bottom modules */
+#custom-spotify, #custom-drive, #custom-temp, #cpu, #memory {
+	padding: 3px 10px;
+	margin: 0 5px;
+	border-bottom: 3px solid @underline;
+}
+
+/* Power button */
+#custom-power {
+	padding: 0 10px;
+	padding-bottom: 3px;
+	color: @background;
+	background: @button;
+	border-top: 3px solid @underline;
+}
+
+#battery.warning {
+	color: @bad;
 }
 
 #battery.critical {
-    color: @bad;
+	color: #c82828;
 }
 
 #battery.charging {
-    color: @good;
+	color: @good;
 }
 
 #network.disconnected {
-    color: @bad;
+	color: @bad;
 }
 
 #pulseaudio.muted {
-    color: @bad;
+	color: @bad;
 }

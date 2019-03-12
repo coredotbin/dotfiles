@@ -1,9 +1,0 @@
-#!/bin/bash
-
-[ -z "$1" ] && exit
-convert "$1" ~/.config/wallpaper.png
-rm -rf ~/.cache/wal
-wal -q -i ~/.config/wallpaper.png
-pkill waybar
-~/.scripts/startwaybar.sh </dev/null &>/dev/null &
-notify-send -t 2000 -i ~/.config/wallpaper.png "Wallpaper updated" "$1"

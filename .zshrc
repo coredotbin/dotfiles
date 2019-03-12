@@ -17,25 +17,31 @@ unsetopt beep notify
 bindkey -v # vi-like keybindings
 # End of lines configured by zsh-newuser-install
 
+# Source this for dynamic window title
 source ~/.oh-my-zsh/lib/termsupport.zsh
 
 ### Environment Variables
+export SYSTEMD_PAGER=less
 export CHROOT=$HOME/chroot
 export EDITOR=vim
 export PAGER=less
-#export NNN_SCRIPT="$HOME/.scripts/setwallpaper"
+# Uncomment this to enable a WIP wallpaper setting script
+export NNN_SCRIPT=$HOME/.scripts/set-wallpaper
 
+# Set the prompt style
 PS1=' %F{4}%1~ >%f '
 
 ### Aliases
 # General
 alias cp='cp -v'
+alias mv='mv -i'
+alias rm='rm -i'
 alias ls='ls -h --color=auto'
-# Switch audio
+# Switch audio profiles
 alias audio-hdmi='pacmd set-card-profile 0 output:hdmi-stereo-extra1'
 alias audio-laptop='pacmd set-card-profile 0 output:analog-stereo+input:analog-stereo'
 alias audio-headphones='pacmd set-card-profile 0 output:analog-surround-40'
-# dotfile storage method
+# dotfile storage method. See README.md for more
 alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # Start sway if running in tty1

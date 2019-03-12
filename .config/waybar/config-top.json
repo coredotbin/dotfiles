@@ -1,0 +1,56 @@
+{
+	"layer": "top",
+	"position": "top",
+	"height": 30,
+	"width": 1920,
+	"modules-left": ["sway/workspaces", "sway/mode"],
+	"modules-center": ["sway/window"],
+	"modules-right": ["idle_inhibitor", "pulseaudio", "network", "battery", "clock", "custom/power"],
+	"sway/mode": {
+		"format": "<span style=\"italic\">{}</span>"
+	},
+	"clock": {
+		"format": "{:%Y-%m-%d %H:%M:%S} ",
+		"interval": 0.5
+	},
+	"battery": {
+		"states": {
+			"good": 95,
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{capacity}% {icon}",
+		"format-icons": ["", "", "", "", ""]
+	},
+	"network": {
+		"format-wifi": "{essid} ",
+		"format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+		"format-disconnected": "Disconnected ⚠"
+	},
+	"pulseaudio": {
+		"on-click": "/usr/bin/pulseaudio-ctl mute",
+		"format": "{volume}% {icon}",
+		"format-bluetooth": "{volume}% {icon}",
+		"format-muted": "Muted ",
+		"format-icons": {
+			"headphones": "",
+			"handsfree": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": ["", ""]
+		}
+	},
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "",
+			"deactivated": ""
+		}
+	},
+	"custom/power": {
+		"on-click": "~/.scripts/power-prompt.sh",
+		"format": "<span font='Font Awesome'></span>"
+	}
+}

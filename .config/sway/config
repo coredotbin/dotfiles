@@ -23,7 +23,7 @@ client.focused_inactive	$good		$good		$foreground	$foreground	$good
 client.unfocused	$good		$good		$foreground	$foreground	$good
 client.urgent		$bad		$bad		$background	$background	$bad
 
-# Outputs
+## Outputs
 # $wallpaper defined by wal in $colors/colors-sway
 output *	bg	$wallpaper	fill
 output HDMI-A-2	pos	0	0	res 1920x1080
@@ -32,7 +32,11 @@ output eDP-1	pos	1920	0	res 1920x1080
 output DP-3	pos	-1920	0	res 1920x1080
 output DP-4	pos	0	0	res 1920x1080
 
+## Workspaces
+include $config/workspaces
+
 ### Behavior
+# Keep mouse where it is when switching workspaces
 mouse_warping none
 focus_follows_mouse no
 # Do not wrap to the next workspace when moving focus
@@ -43,13 +47,10 @@ floating_modifier $mod normal
 for_window [title="mpv"] floating enable
 for_window [title="imv"] floating enable
 for_window [title="Question"] floating enable
-for_window [title="Minecraft"] floating enable
 
 ### Key bindings
 ## Inputs
 include $config/input
-## Workspaces
-include $config/workspaces
 
 ## Lenovo Fn keys
 # Volume
