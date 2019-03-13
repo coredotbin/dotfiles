@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/corbin/Pictures/wallpapers/wune71872gg21.png",
+    "alpha": "100",
+    "special": {
+        "background": "#070611",
+        "foreground": "#80c2c2",
+        "cursor": "#80c2c2"
+    },
+    "colors": {
+        "color0": "#070611",
+        "color1": "#175A5E",
+        "color2": "#136F75",
+        "color3": "#29BD59",
+        "color4": "#199963",
+        "color5": "#0C3E83",
+        "color6": "#187287",
+        "color7": "#80c2c2",
+        "color8": "#598787",
+        "color9": "#175A5E",
+        "color10": "#136F75",
+        "color11": "#29BD59",
+        "color12": "#199963",
+        "color13": "#0C3E83",
+        "color14": "#187287",
+        "color15": "#80c2c2"
+    }
+}

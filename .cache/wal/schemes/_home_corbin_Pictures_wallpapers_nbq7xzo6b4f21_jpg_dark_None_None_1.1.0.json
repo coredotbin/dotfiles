@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/corbin/Pictures/wallpapers/nbq7xzo6b4f21.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#131016",
+        "foreground": "#b1bedb",
+        "cursor": "#b1bedb"
+    },
+    "colors": {
+        "color0": "#131016",
+        "color1": "#90232D",
+        "color2": "#B6434C",
+        "color3": "#3761A4",
+        "color4": "#626EA8",
+        "color5": "#8B5D9C",
+        "color6": "#7087B7",
+        "color7": "#b1bedb",
+        "color8": "#7b8599",
+        "color9": "#90232D",
+        "color10": "#B6434C",
+        "color11": "#3761A4",
+        "color12": "#626EA8",
+        "color13": "#8B5D9C",
+        "color14": "#7087B7",
+        "color15": "#b1bedb"
+    }
+}
