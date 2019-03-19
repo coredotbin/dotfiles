@@ -1,5 +1,6 @@
 sort=+time
+default-timeout=5000
 font=Fira Code 10
 width=500
 padding=8
-default-timeout=5000
+border-size=0
