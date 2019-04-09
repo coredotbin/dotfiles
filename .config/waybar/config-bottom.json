@@ -1,6 +1,7 @@
 {
 	"layer": "top",
 	"position": "bottom",
+	"output": "eDP-1",
 	"height": 30,
 	"width": 1920,
 	"modules-left": ["custom/spotify"],
@@ -9,7 +10,7 @@
 	"custom/spotify": {
 		"format": "<span font='Font Awesome'></span><span font='Fira Code'>{}</span>",
 		"max-length": 40,
-		"exec": "$HOME/.config/waybar/mediaplayer.py 2",
+		"exec": "$HOME/.config/waybar/mediaplayer.py",
 		"exec-if": "pgrep spotify",
 	"on-click": "playerctl play-pause"
 	},

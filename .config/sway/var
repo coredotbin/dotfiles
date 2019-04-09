@@ -8,13 +8,13 @@ set $up		k
 set $right	l
 
 # Applications
-set $term	/usr/bin/kitty
-set $menu	/usr/bin/rofi -show drun -theme $colors/colors-rofi-dark.rasi
-set $lock	/usr/bin/swaylock-blur -f -C ~/.config/swaylock/config
-set $web	/usr/bin/firefox-nightly -p corbin-personal # Personal Firefox profile
+set $term		/usr/bin/kitty
+set $menu		/usr/bin/rofi -show drun -theme $colors/colors-rofi-dark.rasi
+set $web		/usr/bin/firefox-nightly -p corbin-personal # Personal Firefox profile
 set $web-work	/usr/bin/firefox-nightly -p corbin-work # Work Firefox profile
-set $office	/usr/bin/libreoffice # Office suite
-set $files	$term /usr/bin/nnn # New terminal emulator instance
+set $mail		$term /usr/bin/mutt
+set $office		/usr/bin/libreoffice # Office suite
+set $files		$term /usr/bin/nnn # New terminal emulator instance
 set $processes	$term /usr/bin/gotop
-set $audio	/usr/bin/pulseaudio-ctl
-set $player	/usr/bin/playerctl
+set $audio		/usr/bin/pulseaudio-ctl
+set $player		/usr/bin/playerctl

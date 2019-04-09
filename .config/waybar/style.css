@@ -33,11 +33,6 @@ window#waybar {
 	border-top: 3px solid @underline;
 }
 
-/* Resize mode, etc. */
-#mode {
-	background: @color1;
-}
-
 /* Top modules */
 #mode, #idle_inhibitor, #pulseaudio, #custom-brightness, #network, #battery, #clock {
 	padding: 0 10px;
@@ -51,6 +46,12 @@ window#waybar {
 	padding: 3px 10px;
 	margin: 0 5px;
 	border-bottom: 3px solid @underline;
+}
+
+/* Resize mode, etc. */
+#mode {
+	background: @color1;
+	border-top: 3px solid transparent;
 }
 
 /* Power button */

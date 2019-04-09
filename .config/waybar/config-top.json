@@ -50,7 +50,7 @@
 		}
 	},
 	"custom/power": {
-		"on-click": "~/.scripts/power-prompt.sh",
+		"on-click": "/home/corbin/.scripts/powernag.sh",
 		"format": "<span font='Font Awesome'></span>"
 	}
 }

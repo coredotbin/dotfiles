@@ -4,3 +4,5 @@ font=Fira Code 10
 width=500
 padding=8
 border-size=0
+text-color=#FFFFFF
+background-color=#578C72

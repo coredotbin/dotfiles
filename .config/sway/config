@@ -46,7 +46,6 @@ floating_modifier $mod normal
 
 for_window [title="mpv"] floating enable
 for_window [title="imv"] floating enable
-for_window [title="Question"] floating enable
 
 ### Key bindings
 ## Inputs
@@ -62,7 +61,7 @@ bindsym --locked XF86AudioMicMute exec $audio mute-input
 #bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
 #bindsym XF86MonBrightnessUp exec brightnessctl s +5%
 # Lock screen
-bindsym XF86Display exec $lock
+bindsym $mod+t exec ~/.scripts/lock.sh
 
 ## Applications
 # terminal
@@ -79,6 +78,8 @@ bindsym $mod+n exec $files
 bindsym $mod+p exec $processes
 # menu
 bindsym $mod+d exec $menu
+# mail
+bindsym $mod+m exec $mail
 
 ## Media player controls
 bindsym --locked $mod+Left exec $player previous

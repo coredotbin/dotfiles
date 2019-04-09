@@ -1,17 +1,11 @@
 ### sway startup applications
 
 # Start mako notification server if not already running
-exec_always if ! pgrep mako; then \
-	mako || \
-	swaynag -m "Mako failed to start $($output)"; \
-fi
+exec_always 'if ! pgrep mako; then mako > ~/.cache/mako.log; fi'
 
 # Start redshift
 # Probably redundant giving the default config location?
-exec_always if ! pgrep redshift; then \
-	echo "Starting redshift..."; \
-	redshift -c ~/.config/redshift/redshift.conf; \
-fi
+exec_always 'if ! pgrep redshift; then redshift -c ~/.config/redshift/redshift.conf > ~/.cache/redshift.log; fi'
 
 # Start waybar
 exec_always ~/.scripts/start-bar
@@ -19,12 +13,10 @@ exec_always ~/.scripts/start-bar
 # Start swayidle
 # Don't need exec_always with new idle_inhibitor waybar module
 exec swayidle -w \
-	timeout 300	'swaylock-blur -f -c ~/.config/swaylock/config' \
+	timeout 300	'~/.scripts/lock.sh' \
 	timeout 600 'systemctl suspend' \
+	before-sleep	'~/.scripts/lock.sh'
 	#timeout 600	'swaymsg "output * dpms off" && systemctl suspend' \
-	resume 		'swaymsg "output * dpms on"' \
-	before-sleep	'swaylock-blur -f -c ~/.config/swaylock/config' &
+	#resume 		'swaymsg "output * dpms on"' \
 
-exec thunderbird
-
-exec notify-send "Welcome back, Corbin\!"
+exec sleep 1 && notify-send "Welcome back, Corbin!"

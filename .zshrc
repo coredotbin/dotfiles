@@ -29,7 +29,7 @@ export PAGER=less
 export NNN_SCRIPT=$HOME/.scripts/set-wallpaper
 
 # Set the prompt style
-PS1=' %F{4}%1~ >%f '
+PS1=' %F{magenta}%1~ >%f '
 
 ### Aliases
 # General
