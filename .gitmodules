@@ -4,3 +4,15 @@
 [submodule ".vim/pack/plugins/start/vim-css-color"]
 	path = .vim/pack/plugins/start/vim-css-color
 	url = git@github.com:ap/vim-css-color.git
+[submodule ".vim/pack/plugins/start/vim-wordy"]
+	path = .vim/pack/plugins/start/vim-wordy
+	url = git@github.com:reedes/vim-wordy.git
+[submodule ".vim/pack/plugins/start/vim-ditto"]
+	path = .vim/pack/plugins/start/vim-ditto
+	url = git@github.com:dbmrq/vim-ditto.git
+[submodule ".vim/pack/plugins/start/vimtex"]
+	path = .vim/pack/plugins/start/vimtex
+	url = git@github.com:lervag/vimtex.git
+[submodule "/home/corbin/.vim/pack/plugins/start/lightline.vim"]
+	path = .vim/pack/plugins/start/lightline.vim
+	url = git@github.com:itchyny/lightline.vim.git
