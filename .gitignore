@@ -1,2 +1,3 @@
 .dotfiles
-.config/waybar/mediaplayer.py
+.ssh/keys
+.ssh/known_hosts
