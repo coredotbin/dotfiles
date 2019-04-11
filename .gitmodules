@@ -13,6 +13,9 @@
 [submodule ".vim/pack/plugins/start/vimtex"]
 	path = .vim/pack/plugins/start/vimtex
 	url = git@github.com:lervag/vimtex.git
-[submodule "/home/corbin/.vim/pack/plugins/start/lightline.vim"]
+[submodule ".vim/pack/plugins/start/vim-ps1"]
+	path = .vim/pack/plugins/start/vim-ps1
+	url = git@github.com:PProvost/vim-ps1.git
+[submodule ".vim/pack/plugins/start/lightline.vim"]
 	path = .vim/pack/plugins/start/lightline.vim
 	url = git@github.com:itchyny/lightline.vim.git
