@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 # .dotfiles
 My configurations for Sway WM on Arch
 
@@ -92,3 +93,7 @@ Using [brightnessctl](https://github.com/Hummer12007/brightnessctl) to get the b
 
 ## Installation
 I use [StreakyCobra's method](https://news.ycombinator.com/item?id=11071754) for dotfile backup and storage. A good tutorial can be found [here](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo).
+=======
+# .dotfiles - lapis
+Configurations for my home server
+>>>>>>> Stashed changes
