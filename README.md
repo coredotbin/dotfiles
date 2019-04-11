@@ -33,3 +33,6 @@ These are my dotfiles. Feel free to take a look around, but they are constantly 
 ![theme 2](screenshots/screenshot4.png?raw=true)
 
 ![theme 1](screenshots/screenshot1.png?raw=true)
+
+## License
+[GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/)
