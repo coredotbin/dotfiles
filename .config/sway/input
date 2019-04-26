@@ -5,3 +5,7 @@ input 1:1:AT_Translated_Set_2_keyboard {
 	# Set capslock as escape but keep escape default functionality
 	xkb_options caps:escape
 }
+
+input 9494:89:Cooler_Master_Technology_Inc._MasterKeys_Pro_S_white {
+	xkb_options caps:escape
+}

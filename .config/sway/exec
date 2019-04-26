@@ -14,7 +14,7 @@ exec_always ~/.scripts/start-bar
 # Don't need exec_always with new idle_inhibitor waybar module
 exec swayidle -w \
 	timeout 300	'~/.scripts/lock.sh' \
-	timeout 600 'systemctl suspend' \
+	timeout 900 'systemctl suspend' \
 	before-sleep	'~/.scripts/lock.sh'
 	#timeout 600	'swaymsg "output * dpms off" && systemctl suspend' \
 	#resume 		'swaymsg "output * dpms on"' \
