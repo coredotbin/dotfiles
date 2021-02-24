@@ -24,13 +24,7 @@ client.unfocused	$good		$good		$foreground	$foreground	$good
 client.urgent		$bad		$bad		$background	$background	$bad
 
 ## Outputs
-# $wallpaper defined by wal in $colors/colors-sway
-output *	bg	$wallpaper	fill
-output HDMI-A-2	pos	0	0
-output eDP-1	pos	1920	0	res 1920x1080
-# Work dock
-output DP-3	pos	-1920	0	res 1920x1080
-output DP-4	pos	0	0	res 1920x1080
+include $config/output
 
 ## Workspaces
 include $config/workspaces
@@ -44,8 +38,8 @@ focus_wrapping no
 
 floating_modifier $mod normal
 
-for_window [title="mpv"] floating enable
-for_window [title="imv"] floating enable
+#for_window [title="mpv"] floating enable
+#for_window [title="imv"] floating enable
 
 ### Key bindings
 ## Inputs
@@ -58,10 +52,10 @@ bindsym --locked XF86AudioRaiseVolume exec $audio up
 bindsym --locked XF86AudioLowerVolume exec $audio down
 bindsym --locked XF86AudioMicMute exec $audio mute-input
 # Brightness - redshift automatically adjusts brightness
-#bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
-#bindsym XF86MonBrightnessUp exec brightnessctl s +5%
+bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl s +5%
 # Lock screen
-bindsym $mod+t exec ~/.scripts/lock.sh
+bindsym $mod+t exec ~/scripts/lock.sh
 
 ## Applications
 # terminal
@@ -121,6 +115,9 @@ bindsym $mod+Shift+$left move left
 bindsym $mod+Shift+$down move down
 bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
+# Move focused workspace
+bindsym $mod+Shift+Left move workspace output left
+bindsym $mod+Shift+Right move workspace output right
 
 # Split focused container
 bindsym $mod+e layout toggle split

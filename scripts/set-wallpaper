@@ -1,7 +1,0 @@
-#!/bin/bash
-
-[ -z "$1" ] && exit
-echo "Setting wallpaper..."
-convert "$1" ~/.config/wallpaper.png
-wal -qn -i $1 </dev/null &> /dev/null &
-notify-send -i ~/.config/wallpaper.png "Wallpaper updated" "$1"

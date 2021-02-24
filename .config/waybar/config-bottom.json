@@ -4,23 +4,35 @@
 	"output": "eDP-1",
 	"height": 30,
 	"width": 1920,
-	"modules-left": ["custom/spotify"],
+	"modules-left": ["custom/media"],
 	"modules-center": [],
-	"modules-right": ["custom/drive", "custom/temp", "cpu", "memory"],
-	"custom/spotify": {
-		"format": "<span font='Font Awesome'></span><span font='Fira Code'>{}</span>",
+	"modules-right": ["custom/upgrades", "custom/drive", "custom/temp", "cpu", "memory"],
+	"custom/media": {
+		// "format": "<span font='Font Awesome'></span><span font='Fira Code'>{}</span>",
+		"format": "{icon} {}",
+		"return-type": "json",
 		"max-length": 40,
-		"exec": "$HOME/.config/waybar/mediaplayer.py",
-		"exec-if": "pgrep spotify",
-	"on-click": "playerctl play-pause"
+		"format-icons": {
+			"spotify": "",
+			"default": "🎜"
+		},
+		"escape": true,
+		"exec": "$HOME/.config/waybar/mediaplayer-coredotbin.py 2> /dev/null",
+		// "exec-if": "pgrep spotify",
+		"on-click": "playerctl play-pause"
+	},
+	"custom/upgrades": {
+		"exec": "$HOME/scripts/upgrade-count",
+		"interval": 600,
+		"format": "{}"
 	},
 	"custom/drive": {
-		"exec": "$HOME/.scripts/drive-root.sh",
+		"exec": "$HOME/scripts/drive-root.sh",
 		"interval": 600,
 		"format": "{} "
 	}, 
 	"custom/temp": {
-		"exec": "$HOME/.scripts/temp.sh",
+		"exec": "$HOME/scripts/temp.sh",
 		"interval": 5,
 		"format": "{} "
 	},

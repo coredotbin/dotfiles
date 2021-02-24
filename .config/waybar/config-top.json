@@ -5,7 +5,7 @@
 	"width": 1920,
 	"modules-left": ["sway/workspaces", "sway/mode"],
 	"modules-center": ["sway/window"],
-	"modules-right": ["idle_inhibitor", "pulseaudio", "network", "battery", "clock", "custom/power"],
+	"modules-right": ["idle_inhibitor", "custom/brightness", "pulseaudio", "network", "battery", "clock", "custom/power"],
 	"sway/mode": {
 		"format": "<span style=\"italic\">{}</span>"
 	},
@@ -50,7 +50,12 @@
 		}
 	},
 	"custom/power": {
-		"on-click": "/home/corbin/.scripts/powernag.sh",
+		"on-click": "/home/corbin/scripts/powernag.sh",
 		"format": "<span font='Font Awesome'></span>"
-	}
+	},
+	"custom/brightness": {
+		"exec": "/usr/bin/brightnessctl --machine-readable | grep -o -E '([0-9]+%)'",
+        "interval": 1,
+		"format": "{} "
+    }
 }

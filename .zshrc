@@ -14,19 +14,20 @@ HISTSIZE=8192
 SAVEHIST=8192
 setopt autocd nomatch
 unsetopt beep notify
-bindkey -v # vi-like keybindings
+#bindkey -v # vi-like keybindings
 # End of lines configured by zsh-newuser-install
 
 # Source this for dynamic window title
 source ~/.oh-my-zsh/lib/termsupport.zsh
 
 ### Environment Variables
+export PATH=$PATH:$HOME/bin
 export SYSTEMD_PAGER=less
 export CHROOT=$HOME/chroot
 export EDITOR=/usr/bin/vim
 export PAGER=less
 # Uncomment this to enable a WIP wallpaper setting script
-export NNN_SCRIPT=$HOME/.scripts/set-wallpaper
+export NNN_SCRIPT=$HOME/bin/set-wallpaper
 
 # Set the prompt style
 PS1=' %F{magenta}%1~ >%f '
@@ -42,5 +43,5 @@ alias audio-headphones='pacmd set-card-profile 0 output:analog-surround-40'
 # Start sway if running in tty1
 if [ "$(tty)" = "/dev/tty1" ]; then
 	exec sway
-	exit 0
+	#exit 0
 fi

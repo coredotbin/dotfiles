@@ -8,15 +8,19 @@ exec_always 'if ! pgrep mako; then mako > ~/.cache/mako.log; fi'
 exec_always 'if ! pgrep redshift; then redshift -c ~/.config/redshift/redshift.conf > ~/.cache/redshift.log; fi'
 
 # Start waybar
-exec_always ~/.scripts/start-bar
+exec_always ~/scripts/start-bar
 
 # Start swayidle
 # Don't need exec_always with new idle_inhibitor waybar module
 exec swayidle -w \
-	timeout 300	'~/.scripts/lock.sh' \
+	timeout 300	'~/scripts/lock.sh' \
 	timeout 900 'systemctl suspend' \
-	before-sleep	'~/.scripts/lock.sh'
+	before-sleep	'~/scripts/lock.sh'
 	#timeout 600	'swaymsg "output * dpms off" && systemctl suspend' \
 	#resume 		'swaymsg "output * dpms on"' \
 
 exec sleep 1 && notify-send "Welcome back, Corbin!"
+
+exec sleep 2 && ~/scripts/onedrive-status.sh
+#exec onedrive --monitor --confdir='~/.config/onedrive-innotec' &
+exec onedrive --monitor --confdir='~/.config/onedrive-envizion' &

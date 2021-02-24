@@ -18,11 +18,13 @@ runtime! archlinux.vim
 "let skip_defaults_vim=1
 
 set nocompatible
+set clipboard^=unnamedplus
 filetype plugin indent on
 syntax on
 set number
 " Keep the cursor in the middle of the screen
 set scrolloff=999
+set nowrap
 
 " Handling splits
 set splitbelow
@@ -45,13 +47,23 @@ set tabstop=4
 set noexpandtab
 set shiftwidth=4
 
+" ctags
+" remap ins-completion for tags
+noremap <C-.> <C-X><C-J>
+" auto-generate tags file
+"autocmd FileType 
+
+" templates
+autocmd BufNewFile *.tex 0r ~/.vim/templates/tex/apa.tex
+let g:tex_flavor='latex' " Avoid starting in plaintex
+
 " Spell checking
 autocmd FileType markdown,tex setlocal spell
 
 " vim-ditto
 " " Use autocmds to check your text automatically and keep the highlighting
 " up to date (easier):
-au FileType markdown,text DittoOn  " Turn on Ditto's autocmds
+au FileType markdown,tex,text DittoOn  " Turn on Ditto's autocmds
 nmap <leader>di <Plug>ToggleDitto      " Turn Ditto on and off
 
 " If you don't want the autocmds, you can also use an operator to check

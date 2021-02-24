@@ -7,8 +7,10 @@ import gi
 import json
 gi.require_version('Playerctl', '2.0')
 from gi.repository import Playerctl, GLib
+from subprocess import Popen
 
 logger = logging.getLogger(__name__)
+prev_track = ''
 
 
 def write_output(text, player):
@@ -28,6 +30,7 @@ def on_play(player, status, manager):
 
 
 def on_metadata(player, metadata, manager):
+    global prev_track
     logger.info('Received new metadata')
     track_info = ''
 
@@ -44,6 +47,13 @@ def on_metadata(player, metadata, manager):
     if player.props.status != 'Playing' and track_info:
         track_info = ' ' + track_info
     write_output(track_info, player)
+
+    print(player.props.metadata['mpris:trackid'])
+    print(player.props.metadata['mpris:artUrl'])
+
+    if player.props.metadata['mpris:trackid'] != prev_track:
+        prev_track = player.props.metadata['mpris:trackid']
+        Popen(["notify-send", player.get_title(), player.get_artist()])
 
 
 def on_player_appeared(manager, player, selected_player=None):
