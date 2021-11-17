@@ -2,3 +2,6 @@
 .config/wallpaper.png
 .ssh/keys
 .ssh/known_hosts
+.config/Code*
+.config/GIMP*
+.config/Signal*

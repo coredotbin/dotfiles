@@ -22,9 +22,9 @@
 		"on-click": "playerctl play-pause"
 	},
 	"custom/upgrades": {
-		"exec": "$HOME/scripts/upgrade-count",
+		"exec": "$HOME/scripts/upgrade-count.sh",
 		"interval": 600,
-		"format": "{}"
+		"format": "{} "
 	},
 	"custom/drive": {
 		"exec": "$HOME/scripts/drive-root.sh",
