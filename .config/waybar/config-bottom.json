@@ -8,7 +8,6 @@
 	"modules-center": [],
 	"modules-right": ["custom/upgrades", "custom/drive", "custom/temp", "cpu", "memory"],
 	"custom/media": {
-		// "format": "<span font='Font Awesome'></span><span font='Fira Code'>{}</span>",
 		"format": "{icon} {}",
 		"return-type": "json",
 		"max-length": 40,
@@ -18,21 +17,20 @@
 		},
 		"escape": true,
 		"exec": "$HOME/.config/waybar/mediaplayer-coredotbin.py 2> /dev/null",
-		// "exec-if": "pgrep spotify",
 		"on-click": "playerctl play-pause"
 	},
 	"custom/upgrades": {
-		"exec": "$HOME/scripts/upgrade-count.sh",
+		"exec": "$HOME/bin/upgrade-count.sh",
 		"interval": 600,
 		"format": "{} "
 	},
 	"custom/drive": {
-		"exec": "$HOME/scripts/drive-root.sh",
+		"exec": "$HOME/bin/root-capacity.sh",
 		"interval": 600,
 		"format": "{} "
 	}, 
 	"custom/temp": {
-		"exec": "$HOME/scripts/temp.sh",
+		"exec": "$HOME/bin/cpu-temp.sh",
 		"interval": 5,
 		"format": "{} "
 	},

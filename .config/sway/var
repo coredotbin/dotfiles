@@ -14,7 +14,7 @@ set $web		/usr/bin/firefox-nightly -p corbin-personal # Personal Firefox profile
 set $web-work	/usr/bin/firefox-nightly -p corbin-work # Work Firefox profile
 set $mail		/usr/bin/thunderbird
 set $office		/usr/bin/libreoffice # Office suite
-set $files		$term /usr/bin/nnn # New terminal emulator instance
+set $files		$term /usr/bin/nnn # Start nnn in new terminal emulator instance
 set $processes	$term /usr/bin/gotop
 set $audio		/usr/bin/pulseaudio-ctl
 set $player		/usr/bin/playerctl
