@@ -34,7 +34,12 @@ PS1=' %F{magenta}%1~ >%f '
 
 ### Aliases
 # General
-source ~/.config/aliases.sh
+alias cp='cp -v'
+alias mv='mv -i'
+alias rm='rm -i'
+alias ls='ls -h --color=auto'
+# dotfile storage method. See README.md for more
+alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 # Switch audio profiles
 alias audio-hdmi='pacmd set-card-profile 0 output:hdmi-stereo-extra1'
 alias audio-laptop='pacmd set-card-profile 0 output:analog-stereo+input:analog-stereo'
