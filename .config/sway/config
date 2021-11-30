@@ -55,7 +55,8 @@ bindsym --locked XF86AudioMicMute exec $audio mute-input
 bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl s +5%
 # Lock screen
-bindsym $mod+t exec ~/scripts/lock.sh
+bindsym $mod+t exec swaylock-blur --blur-sigma=10 -- -f -C $HOME/.config/swaylock/config &
+
 
 ## Applications
 # terminal
