@@ -1,7 +1,7 @@
 # .dotfiles
 My configurations for Sway WM on Arch
 
-![theme 3](screenshots/screenshot5.png?raw=true)
+![theme 3](https://i.imgur.com/yFQJnAn.png)
 
 These are my dotfiles. Feel free to take a look around, but they are constantly changing, and I cannot guarantee anything will work on your system! Have fun!
 
@@ -28,11 +28,14 @@ These are my dotfiles. Feel free to take a look around, but they are constantly 
 **Notifications**: [mako](https://wayland.emersion.fr/mako)
 
 ## More screenshots
-![theme 4](screenshots/screenshot6.png?raw=true)
+![theme 2](https://i.imgur.com/rCZqVUo.png)
 
-![theme 2](screenshots/screenshot4.png?raw=true)
+![theme 1](https://i.imgur.com/KQUfYnb.png)
 
-![theme 1](screenshots/screenshot1.png?raw=true)
+## Setup
 
-## License
-[GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/)
+```sh
+$ git clone --bare https://github.com/coredotbin/dotfiles .dotfiles
+$ echo "alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'" >> .bashrc
+$ dots checkout
+```
