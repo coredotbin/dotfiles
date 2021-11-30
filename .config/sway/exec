@@ -8,7 +8,7 @@ exec_always 'if ! pgrep mako; then mako > /dev/null; fi'
 exec_always 'if ! pgrep redshift; then redshift -c $HOME/.config/redshift/redshift.conf > /dev/null; fi'
 
 # Start waybar
-exec_always $HOME/bin/start-waybar.sh
+exec_always $HOME/bin/start-bar.sh
 
 # Start swayidle
 # Don't need exec_always with new idle_inhibitor waybar module
