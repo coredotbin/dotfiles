@@ -6,7 +6,7 @@
 	"width": 1920,
 	"modules-left": ["custom/media"],
 	"modules-center": [],
-	"modules-right": ["custom/upgrades", "custom/drive", "custom/temp", "cpu", "memory"],
+	"modules-right": ["custom/upgrades", "custom/root-capacity", "custom/home-capacity", "custom/temp", "cpu", "memory"],
 	"custom/media": {
 		"format": "{icon} {}",
 		"return-type": "json",
@@ -24,8 +24,13 @@
 		"interval": 600,
 		"format": "{} "
 	},
-	"custom/drive": {
+	"custom/root-capacity": {
 		"exec": "$HOME/bin/root-capacity.sh",
+		"interval": 600,
+		"format": "{} "
+	}, 
+	"custom/home-capacity": {
+		"exec": "$HOME/bin/home-capacity.sh",
 		"interval": 600,
 		"format": "{} "
 	}, 

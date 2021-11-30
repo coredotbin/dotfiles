@@ -42,7 +42,7 @@ window#waybar {
 }
 
 /* Bottom modules */
-#custom-spotify, #custom-upgrades, #custom-drive, #custom-temp, #cpu, #memory {
+#custom-spotify, #custom-upgrades, #custom-root-capacity, #custom-home-capacity, #custom-temp, #cpu, #memory {
 	padding: 3px 10px;
 	margin: 0 5px;
 	border-bottom: 3px solid @underline;
