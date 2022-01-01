@@ -1,18 +1,17 @@
 [user]
 	name = Corbin Bartsch
 	email = me@cbarts.net
-	#signingKey = A16604DA8BA7A3EB79687FA558F605CA7E5FECA3
 [alias]
 	undo = reset --mixed HEAD
 	keep-remote = update-index --assume-unchanged
 	keep-local = update-index --no-assume-unchanged
 [commit]
-	#gpgsign = true
-[url "ssh://corbin@lapis.mindhack.space:/"]
-	insteadOf = "lapis:"
+	gpgsign = false
 [url "ssh://aur@aur.archlinux.org/"]
 	insteadOf = "aur:"
 [url "ssh://git@github.com:/"]
 	insteadOf = "github:"
 [credential]
 	helper = store
+[init]
+	defaultBranch = master
