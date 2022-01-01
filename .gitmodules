@@ -19,3 +19,18 @@
 [submodule ".vim/pack/plugins/start/lightline.vim"]
 	path = .vim/pack/plugins/start/lightline.vim
 	url = git@github.com:itchyny/lightline.vim.git
+[submodule ".vim/pack/plugins/start/vim-markdown-toc"]
+	path = .vim/pack/plugins/start/vim-markdown-toc
+	url = git@github.com:mzlogin/vim-markdown-toc
+[submodule ".vim/pack/plugins/start/brightscript.vim"]
+	path = .vim/pack/plugins/start/brightscript.vim
+	url = https://github.com/chooh/brightscript.vim
+[submodule ".vim/pack/plugins/start/fzf.vim"]
+	path = .vim/pack/plugins/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
+[submodule ".vim/pack/plugins/start/vinegar.vim"]
+	path = .vim/pack/plugins/start/vinegar.vim
+	url = https://github.com/tpope/vim-vinegar
+[submodule ".vim/pack/plugins/start/lightline-bufferline"]
+	path = .vim/pack/plugins/start/lightline-bufferline
+	url = https://github.com/mengelbrecht/lightline-bufferline

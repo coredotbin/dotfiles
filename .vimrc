@@ -35,11 +35,71 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Resize vertical windows with <Leader>+/-
+" This doesn't work for some reason? Use Ctrl-w > and Ctrl-w <
+"nnoremap <silent> <Leader>+ :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
+"nnoremap <silent> <Leader>- :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
+
+" Netrw configurations
+" See https://vonheikemen.github.io/devlog/tools/using-netrw-vim-builtin-file-explorer/
+let g:netrw_liststyle = 3 " Change default view type
+let g:netrw_browse_split = 4 " Open files in previous window
+let g:netrw_winsize = 15 " percent of window
+let g:netrw_localcopydircmd = 'cp -r'
+" Mappings
+function! NetrwMapping()
+	" NNN-like key mappings
+	nmap <buffer> h u " Go back in history
+	"nmap <buffer> h -^ " Go up a directory
+	nmap <buffer> l <CR> " Open directory or file
+
+	"nmap <buffer> q :Lexplore<CR> " Close netrw
+endfunction
+" Only open ProjectDrawer and Terminal if we don't specify a file to open
+if argc() == 0
+	augroup Netrw
+		autocmd!
+		autocmd VimEnter * Vexplore " if argc() == 0 | Vexplore | endif
+		autocmd FileType netrw call NetrwMapping() " Set mappings
+	augroup END
+	
+	" Terminal configurations
+	" TODO: Figure out how to hide the terminal buffer from lightlines
+	" bufferline
+	augroup Terminal
+		autocmd!
+		autocmd VimEnter * wincmd p " Go to the previous window
+		" Open the terminal on VimEnter
+		" Do NOT put anything on the same line after this otherwise it will be run in
+		" bash
+		" kill=hup instructs vim to kill running processes in terminal when using :q
+		" i.e. avoiding "Job still running in buffer !bash"
+		autocmd VimEnter * terminal ++rows=15 ++kill=hup
+		autocmd VimEnter * wincmd p " Return to the editor window
+	augroup END
+endif
+
+" Quit all with ,
+" Will prompt for saving - to disable, include ! after :qa
+" This makes it easy to close netrw and terminal in one keystroke
+nnoremap , :qa<CR>
+
 " lightline
+set showtabline=2
 set laststatus=2
 set noshowmode
 let g:lightline = {
-			\ 'colorscheme': 'wombat',
+			\ 	'colorscheme': 'wombat',
+			\ 	'tabline': {
+			\ 		'left': [ ['buffers'] ],
+			\ 		'right': [ ['bufnum'] ]
+			\ 	},
+			\ 	'component_expand': {
+			\ 		'buffers': 'lightline#bufferline#buffers'
+			\ 	},
+			\	'component_type': {
+			\		'buffers': 'tabsel'
+			\	}
 			\ }
 
 " Tab preferences
@@ -63,7 +123,7 @@ autocmd FileType markdown,tex setlocal spell
 " vim-ditto
 " " Use autocmds to check your text automatically and keep the highlighting
 " up to date (easier):
-au FileType markdown,tex,text DittoOn  " Turn on Ditto's autocmds
+autocmd FileType markdown,tex,text DittoOn  " Turn on Ditto's autocmds
 nmap <leader>di <Plug>ToggleDitto      " Turn Ditto on and off
 
 " If you don't want the autocmds, you can also use an operator to check
