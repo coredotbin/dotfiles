@@ -1,12 +1,13 @@
 [user]
 	name = Corbin Bartsch
 	email = me@cbarts.net
+	signingkey = 32D3B80A08D93212
 [alias]
 	undo = reset --mixed HEAD
 	keep-remote = update-index --assume-unchanged
 	keep-local = update-index --no-assume-unchanged
 [commit]
-	gpgsign = false
+	gpgsign = true
 [url "ssh://aur@aur.archlinux.org/"]
 	insteadOf = "aur:"
 [url "ssh://git@github.com:/"]
@@ -15,3 +16,5 @@
 	helper = store
 [init]
 	defaultBranch = master
+[gpg]
+	program = gpg2
