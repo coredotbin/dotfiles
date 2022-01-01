@@ -21,7 +21,7 @@ alias ls='ls -h --color=auto'
 alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # Set the prompt style
-PS1='\W >\e[m '
+PS1='\[\033[35m\]\W >\e[m '
 
 # Start sway if running in tty1
 if [ "$(tty)" = "/dev/tty1" ]; then
