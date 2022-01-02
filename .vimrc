@@ -89,18 +89,18 @@ set showtabline=2
 set laststatus=2
 set noshowmode
 let g:lightline = {
-			\ 	'colorscheme': 'wombat',
-			\ 	'tabline': {
-			\ 		'left': [ ['buffers'] ],
-			\ 		'right': [ ['bufnum'] ]
-			\ 	},
-			\ 	'component_expand': {
-			\ 		'buffers': 'lightline#bufferline#buffers'
-			\ 	},
-			\	'component_type': {
-			\		'buffers': 'tabsel'
-			\	}
-			\ }
+		\	'colorscheme': 'wombat',
+		\ 	'tabline': {
+		\ 		'left': [ ['buffers'] ],
+		\ 		'right': [ ['bufnum'] ]
+		\ 	},
+		\ 	'component_expand': {
+		\ 		'buffers': 'lightline#bufferline#buffers'
+		\ 	},
+		\	'component_type': {
+		\		'buffers': 'tabsel'
+		\	}
+		\ }
 
 " Tab preferences
 set tabstop=4
