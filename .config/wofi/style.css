@@ -1,0 +1,19 @@
+window {
+	background-color: #031A28;
+	opacity: 0.9;
+}
+
+#text {
+	color: #f6d8d4;
+}
+
+#input {
+	background-color: #031A28;
+	color: #f6d8d4;
+	opacity 0.9;
+	border: 0 0 0 0;
+}
+
+#entry:selected {
+	background-color: #2A9494;
+}

@@ -1,0 +1,3 @@
+prompt=Run
+insensitive=True
+style=$HOME/.config/wofi/style.css
