@@ -17,6 +17,7 @@ alias cp='cp -v'
 alias mv='mv -i'
 alias rm='rm -i'
 alias ls='ls -h --color=auto'
+alias df='df -H'
 # dotfile storage method. See README.md for more
 alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
@@ -28,3 +29,8 @@ if [ "$(tty)" = "/dev/tty1" ]; then
 	exec sway
 	#exit 0
 fi
+
+
+# BEGIN_KITTY_SHELL_INTEGRATION
+if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
+# END_KITTY_SHELL_INTEGRATION
