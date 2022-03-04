@@ -9,7 +9,8 @@ set $right	l
 
 # Applications
 set $term		/usr/bin/kitty
-set $menu		/usr/bin/rofi -show drun -theme $colors/colors-rofi-dark.rasi
+#set $menu		/usr/bin/rofi -show drun -theme $colors/colors-rofi-dark.rasi
+set $menu		/usr/bin/wofi --show drun -c $HOME/.config/wofi/menu -s $HOME/.config/wofi/style.css
 set $web		/usr/bin/firefox -p corbin-personal # Personal Firefox profile
 set $mail		/usr/bin/thunderbird
 set $office		/usr/bin/libreoffice # Office suite
