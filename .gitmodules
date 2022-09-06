@@ -1,27 +1,27 @@
 [submodule ".vim/pack/plugins/start/vimwiki"]
 	path = .vim/pack/plugins/start/vimwiki
-	url = git@github.com:vimwiki/vimwiki.git
+	url = https://github.com/vimwiki/vimwiki.git
 [submodule ".vim/pack/plugins/start/vim-css-color"]
 	path = .vim/pack/plugins/start/vim-css-color
-	url = git@github.com:ap/vim-css-color.git
+	url = https://github.com/ap/vim-css-color.git
 [submodule ".vim/pack/plugins/start/vim-wordy"]
 	path = .vim/pack/plugins/start/vim-wordy
-	url = git@github.com:reedes/vim-wordy.git
+	url = https://github.com/reedes/vim-wordy.git
 [submodule ".vim/pack/plugins/start/vim-ditto"]
 	path = .vim/pack/plugins/start/vim-ditto
-	url = git@github.com:dbmrq/vim-ditto.git
+	url = https://github.com/dbmrq/vim-ditto.git
 [submodule ".vim/pack/plugins/start/vimtex"]
 	path = .vim/pack/plugins/start/vimtex
-	url = git@github.com:lervag/vimtex.git
+	url = https://github.com/lervag/vimtex.git
 [submodule ".vim/pack/plugins/start/vim-ps1"]
 	path = .vim/pack/plugins/start/vim-ps1
-	url = git@github.com:PProvost/vim-ps1.git
+	url = https://github.com/PProvost/vim-ps1.git
 [submodule ".vim/pack/plugins/start/lightline.vim"]
 	path = .vim/pack/plugins/start/lightline.vim
-	url = git@github.com:itchyny/lightline.vim.git
+	url = https://github.com/itchyny/lightline.vim.git
 [submodule ".vim/pack/plugins/start/vim-markdown-toc"]
 	path = .vim/pack/plugins/start/vim-markdown-toc
-	url = git@github.com:mzlogin/vim-markdown-toc
+	url = https://github.com/mzlogin/vim-markdown-toc
 [submodule ".vim/pack/plugins/start/brightscript.vim"]
 	path = .vim/pack/plugins/start/brightscript.vim
 	url = git@github.com:chooh/brightscript.vim

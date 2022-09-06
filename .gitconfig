@@ -17,4 +17,8 @@
 [init]
 	defaultBranch = master
 [gpg]
-	program = gpg2
+	program = gpg
+[pull]
+	rebase = false
+[core]
+	excludesFile = ~/.gitignore
